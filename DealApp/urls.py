@@ -20,3 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     """test comment"""
 ]
+test = 'test'
+def bla():
+    print('hello')
