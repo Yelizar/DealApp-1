@@ -57,7 +57,7 @@ ROOT_URLCONF = 'DealApp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [os.path.join(BASE_DIR, 'Template')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
