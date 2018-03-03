@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Latest compiled and minified CSS -->
+
+<body>
+
+    <div id="wrapper">
+    {% include 'header.html' %}
+    {% block content %}
+    {% endblock %}
+    </div>
+    {% include 'footer.html' %}
+
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'bootstrap-3.3.7-dist/js/bootstrap.min.js'%}"></script>
+    <script defer src="{% static 'Font awe/fontawesome-free-5.0.2/svg-with-js/js/fontawesome-all.min.js' %}"></script>
+</body>
+</html>
