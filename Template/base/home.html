@@ -3,47 +3,62 @@
 {% block content %}
 <div class="row">
     <div class="right-side col-6">
-        <div class="buyer-side">
-            <h2>Buyer</h2>
-            <p>Hi there and Welcome to our beta-test DealApp Webservice which provide a couple of new opportunities in the field of sales and deliveries</p>
-            <p>We provide for you a simple way to have a deal with new clients</p>
-
+        <div class="buyer-side"> <!--Buyer -->
+            <h2 class="buyer-logo">Buyer</h2>
+            <ul class="buyer-opportunities">
+                <li>Hi there and Welcome to our beta-test DealApp Webservice which provide a couple of new opportunities in the field of sales and deliveries</li>
+                <li>We provide for you a simple way to have a deal with new suppliers</li>
+                <li>You can do an order in few clicks!</li>
+                <li>Easy way to find the right products</li>
+                <br>
+            </ul>
+            <p><h3>You can register right now to make an order or to contact with the suppliers</h3></p>
         </div>
-        <form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+        <form class="registration-form">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
 
     <div class="left-side col-6">
-        <form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+         <h2 class="supplier-logo">Supplier</h2>
+            <ul class="supplier-opportunities">
+                <li>Hi there and Welcome to our beta-test DealApp Webservice which provide a couple of new opportunities in the field of sales and deliveries</li>
+                <li>We provide for you a simple way to have a deal with new buyers</li>
+                <li>You will be surprised how quickly you can find custumers</li>
+                <li>Do business in your office</li>
+                <li>Or you have a new business and you need a help to start yours deal</li>
+                <br>
+            </ul>
+            <p><h3>You can register right now to contact with the buyers</h3></p>
+        <form class="registration-form">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+        </formregistration-form>
     </div>
 </div>
 {% endblock %}
