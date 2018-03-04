@@ -3,14 +3,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    {% block titel %}<title>Title</title>{% endblock %}
+    <title>{% block titel %}Title{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-grid.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-reboot.css' %}">
+     <!-- Latest compiled and minified CSS -->
 
 <body>
-
-    <div id="wrapper">
     {% include 'header.html' %}
+    <div class="home-container">
     {% block content %}
     {% endblock %}
     </div>
