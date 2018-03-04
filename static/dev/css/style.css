@@ -1,8 +1,11 @@
 /*WE NEED A COMMENT EVERYWHERE*/
+/*header*/
+.dealapp{
+    margin-left: 47.5%;
+}
 /*base.html*/
 .home-container {
     align-self: center;
-
     max-width: 70%;
     margin-left: 15%;
     margin-right: auto;
