@@ -37,10 +37,27 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'base',
     'access',
-
+    'allauth',
+    'allauth.account'
 ]
+
+"""All auth req"""
+"""----------------------------------------------------------------"""
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend'
+)
+
+SITE_ID = 1
+LOGIN_REDIRECT_URL = ''
+LOGIN_URL = '/accounts/login/'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackends'
+ACCOUNT_EMAIL_REQIRED = True
+"""----------------------------------------------------------------"""
+"""All auth req"""
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
