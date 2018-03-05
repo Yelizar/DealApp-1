@@ -31,8 +31,12 @@
                 </ul>
             <p><h3>You can register right now to contact with the buyers</h3></p>
         </div>
+        <form method="post" name="form">
+            <input type="hidden" value="laz">
         <a href="{% url "account_login" %}"><button type="button" class="btn btn-secondary">Login</button></a>
+            </form>
         <a href="{% url "account_signup" %}"><button type="button" class="btn btn-secondary">Sign up</button></a>
+
     </div>
 </div>
 {% endblock %}
