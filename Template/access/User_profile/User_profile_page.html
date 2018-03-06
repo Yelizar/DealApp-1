@@ -1,7 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="">
 
+    <div class="profile-wrapper">
+        <div class="container">
+            <div class="sidebar">
+                sdfsdfsdfsdf
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2 offset-2">
+                    <img src="{{ user.buyerprofile.photo.url }}" class="img-fluid">
+                </div>
+                <div class="col-md-6 offset-2">
+                    <div class="profile-info">
+                        <ul>
+                            <li>Name: {{ user.first_name }}</li>
+                            <li>Surname: {{ user.last_name }}</li>
+                            <li>Phone: {{ user.buyerprofile.phone }}</li>
+                            <li>Email: {{ user.email }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

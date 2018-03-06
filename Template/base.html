@@ -8,12 +8,15 @@
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-grid.css' %}">
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-reboot.css' %}">
+    <script src="{% static 'js/jQuerry/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/js.js' %}"></script>
      <!-- Latest compiled and minified CSS -->
 
 <body>
     {% include 'header.html' %}
     <div class="container home-container">
     {% block content %}
+        {% include 'sidebar.html' %}
     {% endblock %}
     </div>
     {% include 'footer.html' %}
