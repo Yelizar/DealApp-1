@@ -50,6 +50,7 @@ EMAIL_HOST_PASSWORD = 'Azazelo74100147'
 DEFAULT_FROM_EMAIL = 'Hodman'
 DEFAULT_TO_EMAIL = 'Elik.Drayzer@gmail.com'
 
+
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
    )

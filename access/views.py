@@ -10,18 +10,14 @@ class SignUpView(View):
 
     def get(self, request, *args, **kwargs):
         template = self.template
-        form = forms.SignUpForm(initial={'username': 'Username'})
+        form = forms.FrameSignUpForm(initial={'username': 'Username'})
         return render(request, template, locals())
 
     def post(self, request, *args, **kwargs):
         template = self.template
-        form = forms.SignUpForm(request.POST)
+        form = forms.FrameSignUpForm(request.POST)
         if form.is_valid():
-            user = form.save(commit=False)
-            username = form.cleaned_data['username']
-            password = form.clean()
-            email = form.cleaned_data['email']
-            user.save()
+            user = form.save()
         return render(request, template, locals())
 
 

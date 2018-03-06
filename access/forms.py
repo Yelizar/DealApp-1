@@ -1,4 +1,5 @@
 from django.forms import *
+from django.contrib.auth.models import User
 
 
 class FrameSignUpForm(Form):
@@ -26,13 +27,29 @@ class FrameSignUpForm(Form):
         if self.is_buyer and self.is_supplier:
             self.add_error('username', 'Sorry problem on the server')
 
-
-class SignUpForm(FrameSignUpForm):
-    def __init__(self, *args, **kwargs):
-        super(SignUpForm, self).__init__(*args, **kwargs)
-
     def clean(self):
         if self.cleaned_data['password1'] != self.cleaned_data['password2']:
             self.add_error('password1', 'Incorrect password')
         return self.cleaned_data
+
+    def clean_password1(self):
+        data = self.cleaned_data['password1']
+        return data
+
+    def clean_password2(self):
+        data = self.cleaned_data['password2']
+        return data
+
+    def save(self):
+        data = self.cleaned_data
+        user = User.objects.create_user(username=data['username'], password=data['password1'],
+                                        email=data['email'])
+        user.save()
+
+
+# class SignUpForm(FrameSignUpForm):
+#     def __init__(self, *args, **kwargs):
+#         super(SignUpForm, self).__init__(*args, **kwargs)
+
+
 
