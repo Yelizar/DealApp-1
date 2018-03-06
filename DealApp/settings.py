@@ -62,6 +62,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'DealApp.urls'
 
+SITE_ID = 2
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
