@@ -12,12 +12,12 @@ class BuyerAddressInLine(admin.TabularInline):
     extra = 0
 
 
-class BuyerProfileAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in BuyerProfile._meta.fields]
+class UserProfileAdmin(admin.ModelAdmin):
+    list_display = ('id', 'username', 'is_buyer', 'is_supplier', 'date_joined')
     inlines = [BuyerAddressInLine]
 
 
-admin.site.register(BuyerProfile, BuyerProfileAdmin, )
+admin.site.register(UserProfile, UserProfileAdmin, )
 
 
 class BuyerAddressAdmin(admin.ModelAdmin):
