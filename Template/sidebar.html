@@ -1,5 +1,12 @@
+{% load  static %}
 <div class="container">
     <div class="sidebar">
-        sdfsdf
+        <div class="inner-sidebar">
+            <span><h2>Your Profile</h2></span>
+            <div class="profile-img">
+                <img src="{% static 'js/10-dithering-opt.jpg' %}" class="img-fluid">
+            </div>
+            <span class="profile-username"><h3>{{ user.username }}</h3></span>
+        </div>
     </div>
 </div>
