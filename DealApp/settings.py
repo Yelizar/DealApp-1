@@ -40,24 +40,15 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'base',
     'access',
-    'allauth',
-    'allauth.account'
 ]
-
-"""All auth req"""
-"""----------------------------------------------------------------"""
-AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend'
-)
-
-SITE_ID = 1
-LOGIN_REDIRECT_URL = ''
-LOGIN_URL = '/accounts/login/'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackends'
-ACCOUNT_EMAIL_REQIRED = True
-"""----------------------------------------------------------------"""
-"""All auth req"""
+"""I'm trying to send an mail"""
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'Yelizar.Huryn@gmail.com'
+EMAIL_HOST_PASSWORD = 'Azazelo74100147'
+DEFAULT_FROM_EMAIL = 'Hodman'
+DEFAULT_TO_EMAIL = 'Elik.Drayzer@gmail.com'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
