@@ -1,18 +1,20 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 
 
-class UserProfile(User):
+class UserProfile(AbstractBaseUser, PermissionsMixin):
 
     photo = models.ImageField('Profile photo', upload_to='access/profile_photo', blank=True)
-    phone = models.CharField('Phone', default=None, blank=True, max_length=128)
+    phone = models.CharField('Phone', null=True, default=None, blank=True, max_length=128)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
+    first_name = models.CharField(max_length=30, blank=True)
+    last_name = models.CharField(max_length=30, blank=True)
 
     is_buyer = models.BooleanField(default=False, blank=False)
     is_supplier = models.BooleanField(default=False, blank=False)
 
     if is_buyer:
-        map_location = models.CharField('location', default=None, blank=True, max_length=256)
+        map_location = models.CharField('location', null=True, default=None, blank=True, max_length=256)
 
     def __str__(self):
         return '{} {}'.format(self.first_name, self.last_name)
@@ -33,6 +35,9 @@ class Address(models.Model):
 
     def __str__(self):
         return '{}'.format(self.owner)
+
+
+
 
 
 

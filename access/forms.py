@@ -1,5 +1,6 @@
 from django.forms import *
 from django.contrib.auth.models import User
+from .models import *
 
 
 class FrameSignUpForm(Form):
@@ -10,7 +11,7 @@ class FrameSignUpForm(Form):
     email = EmailField(widget=TextInput(attrs={'type': 'email'}))
 
     is_buyer = BooleanField(widget=(CheckboxInput({'type': 'is_buyer'})))
-    is_supplier = BooleanField(widget=(CheckboxInput({'type': 'is_buyer'})))
+    is_supplier = BooleanField(widget=(CheckboxInput({'type': 'is_supplier'})))
 
     def __init__(self, *args, **kwargs):
         super(FrameSignUpForm, self).__init__(*args, **kwargs)
@@ -40,11 +41,22 @@ class FrameSignUpForm(Form):
         data = self.cleaned_data['password2']
         return data
 
+    def clean_is_buyer(self):
+        data = self.cleaned_data['is_buyer']
+        return data
+
+    def clean_is_supplier(self):
+        data = self.cleaned_data['is_supplier']
+        return data
+
     def save(self):
         data = self.cleaned_data
-        user = User.objects.create_user(username=data['username'], password=data['password1'],
-                                        email=data['email'])
-        user.save()
+        # user = User.objects.create_user(username=data['username'], password=data['password1'],
+        #                                 email=data['email'])
+        form_user = UserProfile.objects.create_user(username=data['username'], password=data['password1'],
+                                        email=data['email'], is_buyer=data['is_buyer'], is_supplier=data['is_supplier'])
+        # user.save()
+        form_user.save()
 
 
 # class SignUpForm(FrameSignUpForm):
