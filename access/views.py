@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from DealApp import settings
 from . import forms
+from .models import UserProfile
 
 
 class SignUpView(View):
@@ -22,10 +23,11 @@ class SignUpView(View):
             user = form.save()
 
             """sending mail"""
-            subject = 'Registration on DealApp'
+
+            subject = 'PornoHub'
             from_email = settings.EMAIL_HOST_USER
-            to_email = ['Yelizar.Huryn@gmail.com']#we will take it from model
-            signup_message = 'Hi you\'ve registered om DealApp '
+            to_email = ['alilyabor@gmail.com']#we will take it from model
+            signup_message = 'I wanted to create something new'
             send_mail(subject=subject, from_email=from_email,\
                       recipient_list=to_email, message=signup_message, fail_silently=False)
         return render(request, template, locals())
@@ -34,7 +36,8 @@ class SignUpView(View):
 class BuyerProfile(View):
 
     def get(self, request, username):
-        user = User.objects.get(username=username)
+        user = User.objects.all(username=username)
+        print(user)
         return render(request, 'access/User_profile/User_profile_page.html', locals())
 
 
