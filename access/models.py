@@ -1,15 +1,12 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, User
 
 
-class UserProfile(AbstractBaseUser, PermissionsMixin):
+class UserProfile(User):
 
     photo = models.ImageField('Profile photo', upload_to='access/profile_photo', blank=True)
     phone = models.CharField('Phone', null=True, default=None, blank=True, max_length=128)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
-    first_name = models.CharField(max_length=30, blank=True)
-    last_name = models.CharField(max_length=30, blank=True)
-
     is_buyer = models.BooleanField(default=False, blank=False)
     is_supplier = models.BooleanField(default=False, blank=False)
 

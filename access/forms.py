@@ -59,9 +59,10 @@ class FrameSignUpForm(Form):
         form_user.save()
 
 
-# class SignUpForm(FrameSignUpForm):
+# class LogInForm(FrameSignUpForm):
 #     def __init__(self, *args, **kwargs):
-#         super(SignUpForm, self).__init__(*args, **kwargs)
+#         super(LogInForm, self).__init__(*args, **kwargs)
+
 
 
 
