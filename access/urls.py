@@ -3,6 +3,7 @@ from . import views
 
 app_name = 'access'
 urlpatterns = [
-    path("signup/", views.SignUpView.as_view(), name="account_login"),
+    path('signup/', views.SignUpView.as_view(), name='account_login'),
     re_path(r'^(?P<username>\w+)/$', views.BuyerProfile.as_view(), name='buyer_profile'),
+    path('e-mail/', views.SendingEmail.as_view(), name='e-mail')
 ]

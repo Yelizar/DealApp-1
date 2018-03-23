@@ -41,3 +41,11 @@ class BuyerProfile(View):
         return render(request, 'access/User_profile/User_profile_page.html', locals())
 
 
+class SendingEmail(View):
+
+    def get(self, request):
+        form = forms.FrameEmail()
+        return render(request, 'access/User_profile/sending_email.html', locals())
+
+
+

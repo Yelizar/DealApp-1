@@ -8,7 +8,7 @@ class FrameSignUpForm(Form):
     username = CharField(max_length=128, min_length=4, widget=TextInput(attrs={'type': 'username'}))
     password1 = CharField(widget=PasswordInput(render_value=True))
     password2 = CharField(widget=PasswordInput(render_value=True))
-    email = EmailField(widget=TextInput(attrs={'type': 'email'}))
+    email = EmailField(widget=TextInput(attrs={'type': 'email'}), disabled=True)
 
     is_buyer = BooleanField(widget=(CheckboxInput({'type': 'is_buyer'})))
     is_supplier = BooleanField(widget=(CheckboxInput({'type': 'is_supplier'})))
@@ -62,6 +62,16 @@ class FrameSignUpForm(Form):
 # class LogInForm(FrameSignUpForm):
 #     def __init__(self, *args, **kwargs):
 #         super(LogInForm, self).__init__(*args, **kwargs)
+
+
+class FrameEmail(ModelForm):
+
+    class Meta:
+        model = EmailModel
+        fields = '__all__'
+
+
+
 
 
 

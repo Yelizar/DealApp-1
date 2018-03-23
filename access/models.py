@@ -34,8 +34,14 @@ class Address(models.Model):
         return '{}'.format(self.owner)
 
 
+class EmailModel(models.Model):
+    from_user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    to_user = models.EmailField(blank=True, help_text='Supplier email address')
+    message = models.TextField(max_length=5096)
+    sent = models.DateTimeField(auto_now=False, auto_now_add=True)
 
-
+    def __str__(self):
+        return '{}'.format(self.from_user)
 
 
 
