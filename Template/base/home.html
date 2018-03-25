@@ -14,8 +14,8 @@
             <p><h3>You can register right now to make an order or to contact with the suppliers</h3></p>
         </div>
         <p>If you have not created an account yet, then please</p>
-        <a href="{% url "access:account_login" %}"><button type="button" class="btn btn-secondary">Login</button></a>
-        <a href="{% url "access:account_login" %}"><button type="button" class="btn btn-secondary">Sign up</button></a>
+        <a href="{% url 'account_login' %}"><button type="button" class="btn btn-secondary">Login</button></a>
+        <a href="{% url 'account_signup' %}"><button type="button" class="btn btn-secondary">Sign up</button></a>
 
     </div>
 
@@ -33,9 +33,9 @@
         </div>
         <form method="post" name="form">
             <input type="hidden" value="laz">
-        <a href="{% url "access:account_login" %}"><button type="button" class="btn btn-secondary">Login</button></a>
+        <a href="{% url 'account_login' %}"><button type="button" class="btn btn-secondary">Login</button></a>
             </form>
-        <a href=""><button type="button" class="btn btn-secondary">Sign up</button></a>
+        <a href="{% url 'account_signup' %}"><button type="button" class="btn btn-secondary">Sign up</button></a>
 
     </div>
 </div>

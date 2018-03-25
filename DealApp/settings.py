@@ -41,17 +41,25 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'base',
     'access',
+
+    # all-auth requered apps
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
 ]
-"""I'm trying to send an mail"""
+# """I'm trying to send an mail"""
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'Yelizar.Huryn@gmail.com'
-EMAIL_HOST_PASSWORD = temporary.get_password(temporary.file)
+EMAIL_HOST_USER = 'alilyabor@gmail.com'
+EMAIL_HOST_PASSWORD = 'ParolOtPochty'
 
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
+# `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
    )
 
 MIDDLEWARE = [
@@ -66,7 +74,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'DealApp.urls'
 
-SITE_ID = 2
+SITE_ID = 1
 
 TEMPLATES = [
     {
@@ -134,7 +142,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
+AUTH_USER_MODEL = "access.UserProfile"
 
+LOGIN_REDIRECT_URL = '/home'
+ACCOUNT_FORMS = {'signup': 'access.forms.SignUpForm'}
+LOGIN_URL = 'accounts/login'
+ACCOUNT_SESSION_REMEMBER = None
 
 STATIC_URL = '/static/'
 

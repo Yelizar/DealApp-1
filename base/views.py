@@ -6,7 +6,7 @@ from access.models import UserProfile
 
 class HomeView(View):
     template_name = 'base/home.html'
-    user = UserProfile.objects.all()
+    # user = UserProfile.objects.all()
 
     def get(self, request):
         return render(request, self.template_name, locals())

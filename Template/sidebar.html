@@ -2,12 +2,16 @@
 <div class="container">
     <div class="sidebar">
         <div class="inner-sidebar">
+            {% if user.is_authenticated %}
             <span><h2>Your Profile</h2></span>
             <div class="profile-img">
-                <img src="" class="img-fluid">
+                <img src="{{ user.userprofile.photo.url }}" class="img-fluid">
             </div>
-                {{ user.userprofile.phone}}
-            <span class="profile-username"><i class="far fa-user"></i>{{ user.username }}</span>
+            <div class="profile-username"><i class="far fa-user"></i>{{ user.username }}</div>
+                {% else %}
+                <button class="btn sidebar-login-btn">Log In</button>
+                <button class="btn sidebar-signup-btn">Sign In</button>
+            {% endif %}
         </div>
     </div>
 </div>

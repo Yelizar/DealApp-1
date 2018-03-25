@@ -1,21 +1,19 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 
 
-class UserProfile(User):
+class UserProfile(AbstractUser):
+    TYPE = [('buyer', 'buyer'),
+               ('supplier', 'supplier')]
 
-    photo = models.ImageField('Profile photo', upload_to='access/profile_photo', blank=True)
-    phone = models.CharField('Phone', default=None, blank=True, max_length=128)
-    updated = models.DateTimeField(auto_now=True, auto_now_add=False)
+    photo = models.ImageField('Profile photo', upload_to='access/profile_photo', blank=True, default='access/profile_photo/default_ava.jpg$')
+    phone = models.CharField('Phone', default=None, blank=True, max_length=128, null=True)
 
-    is_buyer = models.BooleanField(default=False, blank=False)
-    is_supplier = models.BooleanField(default=False, blank=False)
+    user_type = models.CharField(max_length=50, default=None, blank=True, choices=TYPE, null=True)
 
-    if is_buyer:
-        map_location = models.CharField('location', default=None, blank=True, max_length=256)
 
-    def __str__(self):
-        return '{} {}'.format(self.first_name, self.last_name)
+    # def __str__(self):
+    #     return '{}'.format(self.username)
 
 
 class Address(models.Model):
@@ -33,6 +31,7 @@ class Address(models.Model):
 
     def __str__(self):
         return '{}'.format(self.owner)
+
 
 
 
