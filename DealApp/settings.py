@@ -39,8 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+
     'base',
     'access',
+    'chat',
+    'Branches',
 
     # all-auth requered apps
     'allauth',
