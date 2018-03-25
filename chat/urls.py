@@ -4,5 +4,5 @@ from django.contrib.auth.decorators import login_required
 
 app_name = 'chat'
 urlpatterns = [
-    path("", login_required(views.ChatView.as_view()), name="chat"),
+    path("", views.ChatView.as_view(), name="chat"),
 ]

@@ -1,3 +1,12 @@
 from django.contrib import admin
+from .models import *
 
-# Register your models here.
+class SessionAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Session._meta.fields]
+
+admin.site.register(Session, SessionAdmin)
+
+class MessageAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Session._meta.fields]
+
+admin.site.register(Message, MessageAdmin)

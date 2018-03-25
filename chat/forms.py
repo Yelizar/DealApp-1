@@ -1,5 +1,10 @@
 from django.forms import *
-from .models import UserProfile
+from .models import Message
 
 
-class
+class MessageForm(ModelForm):
+
+    class Meta:
+        model = Message
+        fields = ['message']
+        labels = {'message': ''}
