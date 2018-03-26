@@ -7,8 +7,7 @@ class SignUpForm(ModelForm):
 
     class Meta:
         model = UserProfile
-        password = CharField(widget=PasswordInput())
-        fields = ['username', password, 'email', 'user_type']
+        fields = ['username', 'password', 'email', 'user_type']
 
 
 #

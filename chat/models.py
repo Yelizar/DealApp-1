@@ -7,7 +7,8 @@ class Session(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return 'users:messages', (), {'session_id': self.pk}
+        return 'chat:message', (), {'chat_id': self.pk}
+
 
 class Message(models.Model):
     session = models.ForeignKey(Session, on_delete=models.CASCADE)
