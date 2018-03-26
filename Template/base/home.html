@@ -1,42 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block titel %} Home {% endblock %}
 {% block content %}
-<div class="row base-row">
-    <div class="right-side col-6">
-        <div class="buyer-side"> <!--Buyer -->
-            <h2 class="buyer-logo">Buyer {{ user. }}</h2>
-            <ul class="buyer-opportunities">
-                <li>Hi there and Welcome to our beta-test DealApp Webservice which provide a couple of new opportunities in the field of sales and deliveries</li>
-                <li>We provide for you a simple way to have a deal with new suppliers</li>
-                <li>You can do an order in few clicks!</li>
-                <li>Easy way to find the right products</li>
-            </ul>
-            <p><h3>You can register right now to make an order or to contact with the suppliers</h3></p>
-        </div>
-        <p>If you have not created an account yet, then please</p>
-        <a href="{% url 'account_login' %}"><button type="button" class="btn btn-secondary">Login</button></a>
-        <a href="{% url 'account_signup' %}"><button type="button" class="btn btn-secondary">Sign up</button></a>
 
-    </div>
-
-    <div class="left-side col-6">
-        <div class="supplier-side"> <!--Supplier -->
-             <h2 class="supplier-logo">Supplier</h2>
-                <ul class="supplier-opportunities">
-                    <li>Hi there and Welcome to our beta-test DealApp Webservice which provide a couple of new opportunities in the field of sales and deliveries</li>
-                    <li>We provide for you a simple way to have a deal with new buyers</li>
-                    <li>You will be surprised how quickly you can find custumers</li>
-                    <li>Do business in your office</li>
-                    <li>Or you have a new business and you need a help to start yours deal</li>
-                </ul>
-            <p><h3>You can register right now to contact with the buyers</h3></p>
-        </div>
-        <form method="post" name="form">
-            <input type="hidden" value="laz">
-        <a href="{% url 'account_login' %}"><button type="button" class="btn btn-secondary">Login</button></a>
-            </form>
-        <a href="{% url 'account_signup' %}"><button type="button" class="btn btn-secondary">Sign up</button></a>
-
-    </div>
-</div>
 {% endblock %}

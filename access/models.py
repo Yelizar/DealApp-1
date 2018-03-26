@@ -6,11 +6,10 @@ class UserProfile(AbstractUser):
     TYPE = [('buyer', 'buyer'),
                ('supplier', 'supplier')]
 
-    photo = models.ImageField('Profile photo', upload_to='access/profile_photo', blank=True, default='access/profile_photo/default_ava.jpg')
+    photo = models.ImageField('Profile photo', upload_to='access/profile_photo', blank=True, default='access/profile_photo/default_ava.png')
     phone = models.CharField('Phone', default=None, blank=True, max_length=128, null=True)
 
     user_type = models.CharField(max_length=50, default=None, blank=True, choices=TYPE, null=True)
-
 
     # def __str__(self):
     #     return '{}'.format(self.username)
@@ -31,7 +30,6 @@ class Address(models.Model):
 
     def __str__(self):
         return '{}'.format(self.owner)
-
 
 
 

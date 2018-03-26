@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import View
+from django.shortcuts import redirect
 from django.contrib.auth.models import User
 from access.models import UserProfile
 # Create your views here.
@@ -18,4 +19,4 @@ class UserHomePage(View):
             else:
                 return render(request, self.s_template)
         else:
-            return render(request, self.landing_template)
+            return redirect('/')

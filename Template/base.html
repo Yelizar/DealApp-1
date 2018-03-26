@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <title>{% block titel %}Title{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/auth_forms.css' %}">
+    <link rel="stylesheet" href="{% static 'css/buyer_home.css' %}">
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-grid.css' %}">
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-reboot.css' %}">
@@ -15,11 +18,9 @@
 
 <body>
     {% include 'header.html' %}
-    <div class="container home-container">
     {% include 'sidebar.html' %}
     {% block content %}
     {% endblock %}
-    </div>
     {% include 'footer.html' %}
 
 

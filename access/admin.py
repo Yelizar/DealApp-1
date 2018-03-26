@@ -14,7 +14,7 @@ class BuyerAddressInLine(admin.TabularInline):
 
 class UserProfileAdmin(admin.ModelAdmin):
     list_display = ['username']
-    fields = ['photo','username', 'first_name', 'last_name', 'user_type']
+    fields = ['photo','username', 'first_name', 'last_name', 'user_type', 'password', 'is_staff']
     inlines = [BuyerAddressInLine]
 
 

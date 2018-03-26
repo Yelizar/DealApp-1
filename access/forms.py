@@ -7,14 +7,15 @@ class SignUpForm(ModelForm):
 
     class Meta:
         model = UserProfile
-        fields = ['username', 'password', 'email', 'user_type']
+        password = CharField(widget=PasswordInput())
+        fields = ['username', password, 'email', 'user_type']
 
 
 #
 # class FrameSignUpForm(Form):
 #
 #     username = CharField(max_length=128, min_length=4, widget=TextInput(attrs={'type': 'username'}))
-#     password1 = CharField(widget=PasswordInput(render_value=True))
+#     password1 = CharField(widget=PadsswordInput(render_value=True))
 #     password2 = CharField(widget=PasswordInput(render_value=True))
 #     email = EmailField(widget=TextInput(attrs={'type': 'email'}))
 #
