@@ -16,7 +16,7 @@
     float: left;
     width: 300px;
     padding: 20px 0;
-    background-color: #000000;
+    background-color: #3a3a3a;
     height: 100%;
     left: -300px;
     -webkit-transition: left 0.4s;
@@ -33,12 +33,12 @@
 }
 
 .sidebar a, a:hover {
-    color: black;
+    color: white;
     text-decoration: none;
 }
 
 .sidebar a:hover{
-    color: black;
+    color: white;
     text-decoration: none;
 }
 
@@ -80,4 +80,25 @@
     padding: 0;
     text-align: center;
     font-size: 20px;
+}
+
+.sidebar li {
+    list-style-type: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.sidebar ul {
+    padding: 0;
+}
+
+.sidebar hr {
+    background: #616161;
+}
+
+
+.user-icon{
+    position: absolute;
+    left: 100px;
+    bottom: 420px;
 }

@@ -7,17 +7,20 @@
             <div class="profile-img">
                 <img src="{{ user.photo.url }}" class="img-fluid">
             </div>
-            <div class="profile-username"><i class="far fa-user"></i>{{ user.username }}</div>
+            <div class="profile-username"><i class="fas fa-user user-icon"></i><span>{{ user.username }}</span></div>
+            <hr>
             <div class="sidebar-options">
                 <ul>
-                    <li><a>Settings</a></li>
-                    <li><a>Options</a></li>
-                    <li><a>Account</a></li>
-                    <li><a></a></li>
-                    <li><a></a></li>
+                    <li><a href="{% url 'chat:chat' %}">Messages</a></li>
+                    <li><a href="#">My suppliers</a></li>
+                    <li><a href="#">Order history</a></li>
+                    <li><a href="#">My stores</a></li>
+                    <hr>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="{% url 'account_logout' %}">LogOut</a></li>
                 </ul>
             </div>
-            <button type="submit"><a href="{% url 'account_logout' %}">LogOut</a></button>
                 {% else %}
                 <button class="btn sidebar-login-btn"><a href="{% url 'account_login' %}">Login</a></button>
                 <button class="btn sidebar-signup-btn"><a href="{% url 'account_signup' %}">Sign Up</a></button>
