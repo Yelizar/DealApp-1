@@ -11,7 +11,8 @@
         <div id="messages" class="panel">
             <div id="innerMessages">
                 {% for message in chat.message_set.all %}
-                        {% include 'chat/message.html' with message_item=message %}
+                    <div class="avatar-messages"> {{ message.user.username }}</div>
+                        <div class="">{{ message }}</div>
                 {% endfor %}
             </div>
         </div>
@@ -19,8 +20,8 @@
     <div id="message_form">
         <form id="message-form" class="panel panel-body" method="post" >
             {% csrf_token %}
-            <button type="submit" class="btn btn-default btn-sm" onclick="return ETextEditor.validateForm('message-form')"><span class="ico ico-comment"></span>Send it bliy</button>
+            {{ form }}
+            <button type="submit" class="btn btn-default btn-sm">Send it bliy</button>
         </form>
     </div>
-{% endif %}
-{% endblock %}
+{% endif %}{% endblock %}

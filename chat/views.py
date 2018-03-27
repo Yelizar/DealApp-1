@@ -19,10 +19,11 @@ class MessageView(View):
     template_name = 'chat/message.html'
 
     def get(self, request, chat_id):
+        form = MessageForm()
         try:
-            chat = Session.objects.get(pk=chat_id)
+            chat = Session.objects.get(id=chat_id)
             if request.user in chat.members.all():
-                chat.message_set.filter(updated=False).exclude(user=request.user).update(updated=True)
+                chat.message_set.filter(is_readed=False).exclude(user=request.user).update(is_readed=True)
             else:
                 chat = None
         except Session.DoesNotExist:
@@ -34,7 +35,7 @@ class MessageView(View):
         form = MessageForm(data=request.POST)
         if form.is_valid():
             message = form.save(commit=False)
-            message.chat_id = chat_id
+            message.session_id = chat_id
             message.user = request.user
             message.save()
         return redirect(reverse('chat:message', kwargs={'chat_id': chat_id}))

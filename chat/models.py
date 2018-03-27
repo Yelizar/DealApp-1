@@ -1,5 +1,6 @@
 from django.db import models
 from access.models import *
+from django.utils import timezone
 
 
 class Session(models.Model):
@@ -15,8 +16,8 @@ class Message(models.Model):
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     message = models.TextField('Enter your message')
 
-    created = models.DateTimeField(auto_now=False, auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True, auto_now_add=False)
+    created = models.DateTimeField(default=timezone.now)
+    is_readed = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['created']
