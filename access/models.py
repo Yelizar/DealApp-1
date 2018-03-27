@@ -10,6 +10,7 @@ class UserProfileManager(BaseUserManager):
         if not email:
             raise ValueError('Users must have an email address')
 
+
         user = self.model(username=username, email=self.normalize_email(email), user_type=user_type)
         user.set_password(password)
         user.save(using=self._db)
@@ -25,13 +26,20 @@ class UserProfileManager(BaseUserManager):
 
 
 class UserProfile(AbstractBaseUser, PermissionsMixin, models.Model):
+
+    def user_imagine_choice(self, user_type):
+        if user_type == 'buyer':
+            return 'access/profile_photo/default-ava.png'
+
+        elif user_type == 'supplier':
+            return 'access/profile_photo/avatar-s.png'
+
     TYPE = [('buyer', 'buyer'),
             ('supplier', 'supplier')]
 
     username = models.CharField(max_length=16, default=None, blank=True, unique=True)
     email = models.EmailField(verbose_name='email address', max_length=255, unique=True)
-    photo = models.ImageField('Profile photo', upload_to='access/profile_photo', blank=True,
-                              default='access/profile_photo/default-ava.png')
+    photo = models.ImageField('Profile photo', upload_to='access/profile_photo', blank=True)
     phone = models.CharField('Phone', default=None, blank=True, max_length=128, null=True)
     is_active = models.BooleanField(default=True, blank=True)
     is_superuser = models.BooleanField(default=False, blank=True)
