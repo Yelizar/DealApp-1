@@ -7,7 +7,6 @@ from django.contrib.auth.models import PermissionsMixin
 class UserProfileManager(BaseUserManager):
 
     def create_user(self, username, password, email=None, user_type=None):
-        print('1')
         if not email:
             raise ValueError('Users must have an email address')
 
@@ -17,7 +16,6 @@ class UserProfileManager(BaseUserManager):
         return user
 
     def create_superuser(self, username, password,email, **kwargs):
-        print('2')
         user = self.model(username=username, password=password, email=self.normalize_email(email))
         user.set_password(password)
         kwargs.setdefault('is_staff', True)
@@ -48,13 +46,11 @@ class UserProfile(AbstractBaseUser, PermissionsMixin, models.Model):
         return self.username
 
     def has_perm(self, perm, obj=None):
-        print('3')
         "Does the user have a specific permission?"
         # Simplest possible answer: Yes, always
         return True
 
     def has_module_perms(self, app_label):
-        print('4')
         "Does the user have permissions to view the app `app_label`?"
         # Simplest possible answer: Yes, always
         return True
