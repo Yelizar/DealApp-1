@@ -13,12 +13,15 @@ class BuyerAddressInLine(admin.TabularInline):
 
 
 class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ['username', 'is_staff','is_superuser','user_type']
-    fields = ['username','photo','email', 'user_type', 'is_staff', 'is_superuser']
+    list_display = ['username', 'user_type', 'is_active']
+    fields = ['username', 'user_type', 'is_active','is_superuser', 'email', 'photo', 'phone', ]
     inlines = [BuyerAddressInLine]
 
+    class Meta:
+        model = UserProfile
 
-admin.site.register(UserProfile, UserProfileAdmin, )
+
+admin.site.register(UserProfile, UserProfileAdmin)
 
 
 class BuyerAddressAdmin(admin.ModelAdmin):
