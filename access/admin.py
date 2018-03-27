@@ -13,8 +13,8 @@ class BuyerAddressInLine(admin.TabularInline):
 
 
 class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ['email']
-    fields = ['photo','email', 'first_name', 'last_name', 'user_type', 'password', 'is_staff']
+    list_display = ['username', 'is_staff','is_superuser','user_type']
+    fields = ['username','photo','email', 'user_type', 'is_staff', 'is_superuser']
     inlines = [BuyerAddressInLine]
 
 

@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import (BaseUserManager, AbstractBaseUser)
+from django.contrib.auth.models import PermissionsMixin
 
 
 class UserProfileManager(BaseUserManager):
@@ -22,14 +23,15 @@ class UserProfileManager(BaseUserManager):
         return user
 
 
-
-class UserProfile(AbstractBaseUser):
+class UserProfile(AbstractBaseUser, PermissionsMixin):
     TYPE = [('buyer', 'buyer'),
             ('supplier', 'supplier')]
 
-    username = models.CharField(max_length=16, default=None, blank=True)
+    username = models.CharField(max_length=16, default=None, blank=True, unique=True)
     email = models.EmailField(verbose_name='email address', max_length=255, unique=True,)
     is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
     photo = models.ImageField('Profile photo', upload_to='access/profile_photo', blank=True,
                               default='access/profile_photo/default-ava.png')
     phone = models.CharField('Phone', default=None, blank=True, max_length=128, null=True)
