@@ -1,6 +1,5 @@
 .chat-list{
     position: relative;
-    padding-left: 20%;
     width: 1250px;
 }
 
@@ -23,7 +22,7 @@
 
 
 .chat-field{
-    margin: 5px 20%;
+    margin: 5px;
 }
 
 .chat-field textarea{
@@ -34,10 +33,10 @@
 }
 
 .message-error{
-    margin: 5px 20%;
+    margin: 5px;
 }
 
 .chat-button {
     position: fixed;
-    margin: 5px 10%;
+    margin: 5px;
 }
