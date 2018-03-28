@@ -6,14 +6,14 @@
         Some problems (Elik you should creat a chat)
     </div>
 {% else %}
-    <div class="col-lg-2">
+    <div class="col-lg-3">
         <div class="chat-button">
             <a href="{% url 'chat:chat' %}"><button>Return to chat</button></a>
         </div>
     </div>
     {% load tz %}
     {% if chat %}
-        <div class="col-lg-4 offset-lg-2">
+        <div class="col-lg-6">
             {% if chat.message_set.count == 0 %}
                 <div class="message-error">
                     <p>No messages with this user yet</p>
@@ -22,7 +22,6 @@
             <div id="messages" class="panel">
                 <div id="chat-list">
                     {% for message in chat.message_set.all %}
-                        <div class="avatar-messages"> </div>
                             {% include 'chat/text.html' with message_item=message %}
                     {% endfor %}
                 </div>
