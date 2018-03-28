@@ -18,9 +18,9 @@
                                 <li class="drop-left-padding">
                                     <strong class="list-group-item-heading">{{ companion.username }}</strong>
                                 </li>
-                                <li class="pull-right text-muted"><small>{{ last_message.pub_date|utc }}</small></li>
+                                <li class="pull-right text-muted"><small>{{ last_message.created|utc }}</small></li>
                             </ul>
-                            {% if companion != last_message.author %}
+                            {% if companion != last_message.user %}
                                 <div>
                                     <img class="avatar-rounded-sm" src="{{ last_message.user.photo.url }}">
                                     <div class="attached-reply-body {% if not last_message.is_readed %}unreaded{% endif %}">{{ last_message.message|truncatechars_html:"200"|safe|striptags }}</div>
