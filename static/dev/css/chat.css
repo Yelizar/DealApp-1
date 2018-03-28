@@ -1,0 +1,43 @@
+.chat-list{
+    position: relative;
+    padding-left: 20%;
+    width: 1250px;
+}
+
+
+.chat-list img {
+
+    border-radius: 50%;
+    border: solid 2px #ffffff;
+    width: 60px;
+    height: 60px;
+    margin: 20px 0 10px 24%;
+}
+
+.chat-set {
+    background-color: white;
+}
+.chat-setunreaded {
+    background-color: #999999;
+}
+
+
+.chat-field{
+    margin: 5px 20%;
+}
+
+.chat-field textarea{
+    border: white;
+    background-color: #999999;
+    width: 800px;
+    height: 100px;
+}
+
+.message-error{
+    margin: 5px 20%;
+}
+
+.chat-button {
+    position: fixed;
+    margin: 5px 10%;
+}
