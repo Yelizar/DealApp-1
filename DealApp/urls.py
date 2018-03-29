@@ -20,11 +20,11 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path(r'', include('access.urls')),
     path(r'', include('base.urls')),
     path(r'accounts/', include('allauth.urls')),
     path(r'home/', include('Branches.urls')),
-    path(r'chat/', include('chat.urls'))
-    # path(r'', include('access.urls')),
+    path(r'chat/', include('chat.urls')),
     # path(r'profile/', include('access.urls')),
 
 ]

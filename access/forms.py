@@ -1,11 +1,13 @@
 from django import forms
 from django.contrib.auth.models import User
 from .models import UserProfile
+from django.contrib.auth import authenticate, login
 
 
-class UserCreationForm(forms.ModelForm):
+class SignUpForm(forms.ModelForm):
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
+
     class Meta:
         model = UserProfile
         fields = ('username', 'email', 'user_type')
@@ -22,8 +24,7 @@ class UserCreationForm(forms.ModelForm):
         # Save the provided password in hashed format
         user = super().save(commit=False)
         user.set_password(self.cleaned_data["password1"])
-        if commit:
-            user.save()
+        user.save()
         return user
 #
 # class FrameSignUpForm(Form):
@@ -77,19 +78,3 @@ class UserCreationForm(forms.ModelForm):
 #         user = User.objects.create_user(username=data['username'], password=data['password1'],
 #                                             email=data['email'], is_buyer=data['like'], is_supplier=data['like'])
 #         user.save()
-
-#
-#
-#
-# class LogInForm(ModelForm):
-#     username = CharField(max_length=128, min_length=4, widget=TextInput(attrs={'type': 'username'}))
-#     password = CharField(widget=PasswordInput(render_value=True))
-#
-#     class Meta:
-#         model = User
-#         fields = ['username', 'password']
-#
-#
-#
-#
-#

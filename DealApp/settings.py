@@ -151,7 +151,7 @@ USE_TZ = True
 AUTH_USER_MODEL = "access.UserProfile"
 
 LOGIN_REDIRECT_URL = '/home'
-ACCOUNT_FORMS = {'signup': 'access.forms.UserCreationForm'}
+# ACCOUNT_FORMS = {'signup': 'access.forms.UserCreationForm'}
 LOGIN_URL = 'accounts/login'
 ACCOUNT_SESSION_REMEMBER = None
 
