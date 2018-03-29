@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse
 from django.views.generic import View
+from django.db.models import Count
 from .forms import *
 from .models import Session
 from django.contrib.auth.decorators import login_required
@@ -42,9 +43,8 @@ class MessageView(View):
 
 
 class CreateSessionView(View):
-
     def get(self, request, user_id):
-        chats = Session.objects.filter(members__in=[request.user.id, user_id])
+        chats = Session.objects.filter(members__in=[request.user.id, user_id]).annotate(c=Count('members')).filter(c=2)
         if chats.count() == 0:
             chat = Session.objects.create()
             chat.members.add(request.user)
