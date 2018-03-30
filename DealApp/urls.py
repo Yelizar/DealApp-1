@@ -23,7 +23,7 @@ urlpatterns = [
     path(r'', include('access.urls')),
     path(r'', include('base.urls')),
     path(r'accounts/', include('allauth.urls')),
-    path(r'home/', include('Branches.urls')),
+    path(r'home/', include('branches.urls')),
     path(r'chat/', include('chat.urls')),
     # path(r'profile/', include('access.urls')),
 

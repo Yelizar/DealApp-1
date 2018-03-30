@@ -1,4 +1,4 @@
-"""delete when site will be finished"""
+"""will be deleted"""
 import os
 import django
 

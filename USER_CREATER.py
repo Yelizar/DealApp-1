@@ -1,3 +1,4 @@
+"""will be deleted"""
 from access.models import UserProfile
 from random import choice
 

@@ -1,3 +1,4 @@
+"""will be deleted"""
 LIST_OF_MANS_NAMES = []
 LIST_OF_GIRLS_NAMES = []
 f = open('mans.txt', 'r+')

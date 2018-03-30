@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'base',
     'access',
     'chat',
-    'Branches',
+    'branches',
 
     # all-auth requered apps
     'allauth',
