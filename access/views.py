@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import View
-# Create your views here.
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from DealApp import settings
