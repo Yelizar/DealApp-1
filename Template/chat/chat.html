@@ -11,18 +11,23 @@
             {% with last_message=chat.message_set.last %}
                 {% get_companion user chat as companion %}
                 <div class="col-lg-12">
-                    <a class="chat-set" href="{{ chat.get_absolute_url }}">
-                        <div class="chat-user-info">
+                    <div class="chat-user-info chats">
+
                             <img class="" src="{{ user.photo.url }}">
                             <strong class="list-group-item-heading">{{ companion.username }}</strong>
+
                             <small class="chat-date">{{ last_message.created|utc }}</small>
                             {% if user != last_message.user %}
+                                <a class="" href="{{ chat.get_absolute_url }}">
                                 <div class="chat-user-info-small">
                                     <div class="chat-set{% if not last_message.is_readed %}unreaded{% endif %}"><img class="" src="{{ companion.photo.url }}">{{ last_message.message }}</div>
                                 </div>
+                                </a>
                             {% else %}
+                                <a class="" href="{{ chat.get_absolute_url }}">
                                 <div class="chat-user-info-small">
                                     <div class="chat-set{% if not last_message.is_readed %}unreaded{% endif %}"><img class="" src="{{ user.photo.url }}">{{ last_message.message }}</div>
+                                </a>
                                 </div>
                             {% endif %}
                         </div>

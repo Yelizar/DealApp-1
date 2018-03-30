@@ -42,12 +42,13 @@
 
 
 .chat-field{
+    color: #f51efe;
     margin: 5px;
 }
 
-.chat-field textarea{
-    border: white;
-    background-color: #999999;
+.chat-field textarea {
+    resize: none;
+    background-color: white;
     width: 800px;
     height: 100px;
 }
@@ -59,4 +60,10 @@
 .chat-button {
     position: fixed;
     margin: 5px;
+}
+
+.chats{
+    margin: 5px 0 3px 0;
+    padding: 2px 2px 2px 2px;
+    background-color: #5a6268;
 }
