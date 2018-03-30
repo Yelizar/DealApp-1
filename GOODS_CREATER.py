@@ -6,7 +6,7 @@ import USER_CREATER
 
 class GoodsCreater(USER_CREATER.UserCreater):
 
-    LIST_OF_GOODS_NAMES = ['Apple', 'Apricot', 'Avocado', 'Banana', 'Bilberry', 'Blackberry',
+    LIST_OF_GOODS_NAMES = ('Apple', 'Apricot', 'Avocado', 'Banana', 'Bilberry', 'Blackberry',
                            'Blackcurrant', 'Blueberry', 'Boysenberry', "Buddha's",
                            'Crab apples', 'Currant', 'Cherry', 'Cherimoya', 'Chico fruit',
                            'Cloudberry', 'Coconut', 'Cranberry', 'Cucumber', 'Custard apple',
@@ -23,9 +23,9 @@ class GoodsCreater(USER_CREATER.UserCreater):
                            'Pomelo', 'Purple mangosteen', 'Quince', 'Raspberry', 'Salmonberry',
                            'Rambutan', 'Redcurrant', 'Salal berry', 'Salak', 'Satsuma', 'Soursop',
                            'Star fruit', 'gonzoberry', 'Strawberry', 'Tamarillo', 'Tamarind',
-                           'Ugli fruit', 'Yuzu']
+                           'Ugli fruit', 'Yuzu')
 
-    LIST_OF_DESCRIPTION = ['The waterfall at Skakavac is one of the most attractive sites in the vicinity of Sarajevo.',
+    LIST_OF_DESCRIPTION = ('The waterfall at Skakavac is one of the most attractive sites in the vicinity of Sarajevo.',
                            'Hottie is a slang term for a physically attractive person.',
                            'A new study has revealed that bald men may actually be happier than men with hair.',
                            'Ethan is haunted by dreams of a beautiful girl he has never met.',
@@ -72,10 +72,9 @@ class GoodsCreater(USER_CREATER.UserCreater):
                            'The shy girls from the village had very little experience with men.',
                            'The village girls had tender skin which was very sensitive to the touch.',
                            'I saw the tender regard which he cast upon her.',
-                           'Shahar claims to be uninterested in the theory of feminism.']
+                           'Shahar claims to be uninterested in the theory of feminism.')
 
-
-    LIST_OF_SUPPLIERS = UserProfile.objects.all()
+    LIST_OF_SUPPLIERS = UserProfile.objects.filter(user_type='supplier')
 
     LIST_OF_PICTURES = ('branches/goods/1.jpg', 'branches/goods/2.jpg', 'branches/goods/3.jpg',
                         'branches/goods/4.jpg', 'branches/goods/11.jpg', 'branches/goods/18.jpg',
@@ -90,7 +89,7 @@ class GoodsCreater(USER_CREATER.UserCreater):
 
     def __init__(self):
         super(GoodsCreater, self).__init__(50)
-        counter = 200
+        counter = 300
         while counter != 0:
             new_object = Goods()
             new_object.supplier = self.rdm_choice(self.LIST_OF_SUPPLIERS)

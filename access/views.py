@@ -22,15 +22,10 @@ class SignUpView(View):
         form = forms.SignUpForm(request.POST)
 
         if form.is_valid():
-
             user = form.save()
+            user_id = UserProfile.objects.get(username=form.username)
             username = form.cleaned_data['username']
             password = form.cleaned_data['password1']
-            user.user_type = form.cleaned_data['user_type']
-            if user.user_type == 'buyer':
-                user.photo = 'access/profile_photo/default-ava.png'
-            else:
-                user.photo = 'access/profile_photo/avatar-s.png'
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)

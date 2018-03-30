@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import View
+from django.views.generic import View, ListView, DetailView
 from django.shortcuts import redirect
+from .models import Goods
 from django.contrib.auth.models import User
 from access.models import UserProfile
 # Create your views here.
@@ -20,3 +21,12 @@ class UserHomePage(View):
                 return render(request, self.s_template)
         else:
             return redirect('/')
+
+
+class SuppliersGoodsView(View):
+    template_name = 'supplier_pages/list_goods.html'
+
+    def get(self, request):
+        goods = Goods.objects.filter(supplier=request.user)
+        return render(request, self.template_name, locals())
+
