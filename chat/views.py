@@ -45,6 +45,7 @@ class MessageView(View):
 class CreateSessionView(View):
     def get(self, request, user_id):
         chats = Session.objects.filter(members__in=[request.user.id, user_id]).annotate(c=Count('members')).filter(c=2)
+
         if chats.count() == 0:
             chat = Session.objects.create()
             chat.members.add(request.user)

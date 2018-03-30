@@ -10,6 +10,16 @@
     padding: 0;
     margin: 0;
 }
+
+.chat-user-info-small img{
+    border-radius: 50%;
+    border: solid 2px #ffffff;
+    width: 30px;
+    height: auto;
+    padding: 0;
+    margin: 0;
+}
+
 .chat-username {
     width: 0;
 }

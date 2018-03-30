@@ -150,7 +150,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 AUTH_USER_MODEL = "access.UserProfile"
 
-LOGIN_REDIRECT_URL = '/home'
+LOGIN_REDIRECT_URL = '/'
 # ACCOUNT_FORMS = {'signup': 'access.forms.UserCreationForm'}
 LOGIN_URL = 'accounts/login'
 ACCOUNT_SESSION_REMEMBER = None
