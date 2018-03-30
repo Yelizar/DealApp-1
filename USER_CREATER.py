@@ -39,25 +39,28 @@ class UserCreater:
     GENDER = [LIST_OF_GIRLS_NAMES, LIST_OF_MANS_NAMES]
 
     def __init__(self, counter):
-        while counter != 0:
-            new_user = UserProfile()
-            new_user.username = choice(self.rdm_choice(self.GENDER))
-            if new_user.username in self.LIST_OF_MANS_NAMES:
-                self.LIST_OF_MANS_NAMES.remove(new_user.username)
+        self.counter = counter
+        self.creater()
+
+    def creater(self):
+        while self.counter != 0:
+            new_object = UserProfile()
+            new_object.username = choice(self.rdm_choice(self.GENDER))
+            if new_object.username in self.LIST_OF_MANS_NAMES:
+                self.LIST_OF_MANS_NAMES.remove(new_object.username)
             else:
-                self.LIST_OF_GIRLS_NAMES.remove(new_user.username)
-            new_user.email = new_user.username+self.rdm_choice(self.EMAIL_TYPE)
-            new_user.user_type = self.rdm_choice(self.USER_TYPE)
-            if new_user.user_type == 'buyer':
-                new_user.photo = 'access/profile_photo/default-ava.png'
+                self.LIST_OF_GIRLS_NAMES.remove(new_object.username)
+            new_object.email = new_object.username+self.rdm_choice(self.EMAIL_TYPE)
+            new_object.user_type = self.rdm_choice(self.USER_TYPE)
+            if new_object.user_type == 'buyer':
+                new_object.photo = 'access/profile_photo/default-ava.png'
             else:
-                new_user.photo = 'access/profile_photo/avatar-s.png'
-            new_user.set_password('1234qwer')
-            new_user.save()
-            print(new_user)
-            counter = counter-1
+                new_object.photo = 'access/profile_photo/avatar-s.png'
+            new_object.set_password('1234qwer')
+            new_object.save()
+            print(new_object)
+            self.counter -= 1
 
     def rdm_choice(self, x):
         rdm = choice(x)
         return rdm
-

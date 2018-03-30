@@ -6,6 +6,7 @@ from DealApp import settings
 from . import forms
 from .models import UserProfile
 from django.contrib.auth import authenticate, login
+import os
 
 
 class SignUpView(View):
@@ -21,6 +22,7 @@ class SignUpView(View):
         form = forms.SignUpForm(request.POST)
 
         if form.is_valid():
+
             user = form.save()
             username = form.cleaned_data['username']
             password = form.cleaned_data['password1']
