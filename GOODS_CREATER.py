@@ -1,4 +1,4 @@
-from branches.models import Goods
+from suppliers.models import Goods
 from access.models import UserProfile
 from random import randrange
 import USER_CREATER

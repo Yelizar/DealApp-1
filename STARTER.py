@@ -7,7 +7,7 @@ if __name__ == "__main__":
     django.setup()
 
 
-import USER_CREATER, GOODS_CREATER
+import GOODS_CREATER
 
 
 GOODS_CREATER.GoodsCreater()
