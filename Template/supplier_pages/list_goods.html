@@ -16,10 +16,10 @@
                             </div>
                         <div class="card-body">
                             <p class="card-text">
-                                {% if object.description|length <= 55%}
+                                {% if object.description|length <= 52%}
                                     {{ object.description }}
-                                {% elif object.description|length >= 55 %}
-                                    {{ object.description|truncatechars:55 }}
+                                {% elif object.description|length >= 52 %}
+                                    {{ object.description|truncatechars:52 }}
                                 {% endif %}
                             </p>
                         </div>

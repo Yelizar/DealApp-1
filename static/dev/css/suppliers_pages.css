@@ -17,10 +17,14 @@
     display: block;
 }
 
-.btn-prime{
+.btn-success{
     margin-right: 4px;
 }
 
 .left-side{
     background-color: white;
+}
+
+.d-flex{
+    padding-bottom: 5px;
 }
