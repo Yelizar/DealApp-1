@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import View, ListView, DetailView
+from django.views.generic import View, ListView, CreateView, DeleteView
 from django.shortcuts import redirect
 from .models import Goods
 from django.contrib.auth.models import User
@@ -7,20 +7,11 @@ from access.models import UserProfile
 # Create your views here.
 
 
-class UserHomePage(View):
-    b_template = 'buyer_pages/buyer_home.html'
-    s_template = 'supplier_pages/supplier_home.html'
-    landing_template = 'base/home.html'
+class SupplierHomePage(View):
+    template_name = 'supplier_pages/supplier_home.html'
 
     def get(self, request):
-
-        if request.user.is_authenticated:
-            if request.user.user_type == 'buyer':
-                return render(request, self.b_template)
-            else:
-                return render(request, self.s_template)
-        else:
-            return redirect('/')
+        return render(request, self.template_name, locals())
 
 
 class SuppliersGoodsView(View):
@@ -29,4 +20,10 @@ class SuppliersGoodsView(View):
     def get(self, request):
         goods = Goods.objects.filter(supplier=request.user)
         return render(request, self.template_name, locals())
+
+class SupplierGoodsCreateView(CreateView):
+    template_name = 'supplier_pages/create_goods.html'
+    model = Goods
+    fields = '__all__'
+    success_url = '../../goods/'
 

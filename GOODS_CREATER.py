@@ -76,19 +76,19 @@ class GoodsCreater(USER_CREATER.UserCreater):
 
     LIST_OF_SUPPLIERS = UserProfile.objects.filter(user_type='supplier')
 
-    LIST_OF_PICTURES = ('branches/goods/1.jpg', 'branches/goods/2.jpg', 'branches/goods/3.jpg',
-                        'branches/goods/4.jpg', 'branches/goods/11.jpg', 'branches/goods/18.jpg',
-                        'branches/goods/5.jpg', 'branches/goods/12.jpg', 'branches/goods/19.jpg',
-                        'branches/goods/6.jpg', 'branches/goods/13.jpg', 'branches/goods/20.jpg',
-                        'branches/goods/7.jpg', 'branches/goods/14.jpg', 'branches/goods/21.jpg',
-                        'branches/goods/8.jpg', 'branches/goods/15.jpg', 'branches/goods/22.jpg',
-                        'branches/goods/9.jpg', 'branches/goods/16.jpg', 'branches/goods/23.jpg',
-                        'branches/goods/10.jpg', 'branches/goods/17.jpg', 'branches/goods/24.jpg',
-                        'branches/goods/25.jpg', 'branches/goods/26.jpg',
+    LIST_OF_PICTURES = ('suppliers/goods/1.jpg', 'suppliers/goods/2.jpg', 'suppliers/goods/3.jpg',
+                        'suppliers/goods/4.jpg', 'suppliers/goods/11.jpg', 'suppliers/goods/18.jpg',
+                        'suppliers/goods/5.jpg', 'suppliers/goods/12.jpg', 'suppliers/goods/19.jpg',
+                        'suppliers/goods/6.jpg', 'suppliers/goods/13.jpg', 'suppliers/goods/20.jpg',
+                        'suppliers/goods/7.jpg', 'suppliers/goods/14.jpg', 'suppliers/goods/21.jpg',
+                        'suppliers/goods/8.jpg', 'suppliers/goods/15.jpg', 'suppliers/goods/22.jpg',
+                        'suppliers/goods/9.jpg', 'suppliers/goods/16.jpg', 'suppliers/goods/23.jpg',
+                        'suppliers/goods/10.jpg', 'suppliers/goods/17.jpg', 'suppliers/goods/24.jpg',
+                        'suppliers/goods/25.jpg', 'suppliers/goods/26.jpg',
                         )
 
     def __init__(self):
-        super(GoodsCreater, self).__init__(50)
+        super(GoodsCreater, self).__init__(0)
         counter = 300
         while counter != 0:
             new_object = Goods()

@@ -12,14 +12,20 @@
             <div class="sidebar-options">
                 <ul>
                     <li><a href="{% url 'chat:chat' %}">Messages</a></li>
-                    <li><a href="#">My suppliers</a></li>
-                    <li><a href="#">Order history</a></li>
-                    <li><a href="#">My stores</a></li>
-                    <li><a href="{% url 'suppliers:list_goods' %}">My products</a></li>
+                    {% if request.user.user_type == 'supplier' %}
+                        <li><a href="#">My buyer</a></li>
+                        <li><a href="#">Order history</a></li>
+                        <li><a href="{% url 'suppliers:list_goods' %}">My products</a></li>
+                    {% elif request.user.user_type == 'buer' %}
+                        <li><a href="#">My suppliers</a></li>
+                        <li><a href="#">Order history</a></li>
+                         <li><a href="#">My stores</a></li>
+                    {% else %}
+                    {% endif %}
                     <hr>
-                    <li><a href="{% url 'account_logout' %}">LogOut</a></li>
                     <li><a href="{% url 'base:about' %}">About</a></li>
                     <li><a href="#">Settings</a></li>
+                    <li><a href="{% url 'account_logout' %}">LogOut</a></li>
                 </ul>
             </div>
                 {% else %}
