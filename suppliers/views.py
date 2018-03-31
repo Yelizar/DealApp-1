@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import View, ListView, CreateView, DeleteView
+from django.views.generic import View, UpdateView, CreateView, DeleteView
 from django.shortcuts import redirect
 from .models import Goods
 from django.contrib.auth.models import User
@@ -21,9 +21,23 @@ class SuppliersGoodsView(View):
         goods = Goods.objects.filter(supplier=request.user)
         return render(request, self.template_name, locals())
 
+
 class SupplierGoodsCreateView(CreateView):
     template_name = 'supplier_pages/create_goods.html'
     model = Goods
     fields = '__all__'
     success_url = '../../goods/'
 
+
+class SupplierGoodsUpdateView(UpdateView):
+    template_name = 'supplier_pages/update_goods.html'
+    model = Goods
+    success_url = '../../../goods/'
+    fields = '__all__'
+
+
+class SupplierGoodsDeleteView(DeleteView):
+    template_name = 'supplier_pages/delete_goods.html'
+    model = Goods
+    success_url = '../../../goods/'
+    fields = '__all__'

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="col-lg-3 left-side">
+        <p>Return to List of your Goods</p>
+        <a href="{% url 'suppliers:list_goods' %}" class="btn btn-primary" role="button">Return</a>
+    </div>
+    <div class="col-lg-3">
+        <form action="" method="post">{% csrf_token %}
+            <p>Are you sure you want to delete "{{ object }}"?</p>
+            <input type="submit" value="Delete" />
+        </form>
+    </div>
+
+{% endblock %}
