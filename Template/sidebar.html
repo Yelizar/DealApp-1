@@ -12,7 +12,7 @@
             <div class="sidebar-options">
                 <ul>{% message request user.id as message%}
                 <button class="Red" id="count1" >Show messages</button>
-                    <li><a href="{% url 'chat:chat' %}">Messages</a><div class="" id="mes" ></div></li>
+                    <li><a href="{% url 'chat:chat' %}">Messages</a><div class="" id="mes" >{{ message }}</div></li>
                     {% if request.user.user_type == 'supplier' %}
                         <li><a href="#">My buyer</a></li>
                         <li><a href="#">Order history</a></li>

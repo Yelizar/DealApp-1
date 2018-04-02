@@ -12,8 +12,10 @@ class ChatView(View):
     def get(self, request):
         template = self.template_name
         chats = Session.objects.filter(members__in=[request.user.id])
+        messages = Message.objects.filter(session__members=request.user.id).exclude(user=request.user.id).filter(is_readed=False)
+        message = len(messages)
         if request.is_ajax():
-            dat = len(chats)
+            dat = message
             return HttpResponse(dat, content_type='application/json')
         return render(request, template, locals())
 
