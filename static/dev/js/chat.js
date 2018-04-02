@@ -1,5 +1,10 @@
-$(document).ready(function () {
-    $('.chat-field textarea').click(function () {
-        $('.sidebar').toggleClass('active');
+$(document).ready(function() {
+       $(".Red").focusin(function(){
+           $.ajax({
+               success: function(){
+                    $('#mes').append(message);
+        }
+        });
+
     });
 });

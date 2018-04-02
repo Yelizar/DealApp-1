@@ -10,8 +10,9 @@
             <div class="profile-username"><i class="fas fa-user user-icon"></i><span>{{ user.username }}</span></div>
             <hr>
             <div class="sidebar-options">
-                <ul>
-                    <li><a href="{% url 'chat:chat' %}">Messages</a></li>
+                <ul>{% message request user.id as message%}
+                <button class="Red" id="count1" >Show messages</button>
+                    <li><a href="{% url 'chat:chat' %}">Messages</a><div class="" id="mes" ></div></li>
                     {% if request.user.user_type == 'supplier' %}
                         <li><a href="#">My buyer</a></li>
                         <li><a href="#">Order history</a></li>

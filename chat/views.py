@@ -3,7 +3,7 @@ from django.views.generic import View
 from django.db.models import Count
 from .forms import *
 from .models import Session
-from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 
 
 class ChatView(View):
@@ -12,8 +12,10 @@ class ChatView(View):
     def get(self, request):
         template = self.template_name
         chats = Session.objects.filter(members__in=[request.user.id])
+        if request.is_ajax():
+            dat = len(chats)
+            return HttpResponse(dat, content_type='application/json')
         return render(request, template, locals())
-
 
 
 class MessageView(View):

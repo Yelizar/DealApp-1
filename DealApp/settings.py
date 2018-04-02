@@ -93,7 +93,8 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
             'builtins': [
-                'templatetags.get_companion'
+                'templatetags.get_companion',
+                'templatetags.message'
             ]
         },
     },
