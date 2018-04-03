@@ -66,3 +66,18 @@
     padding: 2px 2px 2px 2px;
     background-color: #5a6268;
 }
+.string-mes{
+
+    float: initial;
+
+}
+
+.mes{
+    position: absolute;
+    margin-left: 190px;
+    float: right;
+    background-color: greenyellow;
+    color: #005cbf;
+    width: 20px;
+    border-radius: 10px;
+}
