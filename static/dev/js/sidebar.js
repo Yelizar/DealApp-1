@@ -10,5 +10,31 @@ $(document).ready(function () {
 
             }
         })
+    });
+
+    $('#string-products').focusin(function() {
+        $.ajax({
+            type: 'GET',
+            url: "http://127.0.0.1:8000/suppliers/goods/",
+            data: {data: 'get_page'},
+            success: function (template) {
+
+                $('#main-box').html(template)
+
+            }
+        })
+    });
+
+    $('#string-about').focusin(function() {
+        $.ajax({
+            type: 'GET',
+            url: "http://127.0.0.1:8000/about/",
+            data: {data: 'get_page'},
+            success: function (template) {
+
+                $('#main-box').html(template)
+
+            }
+        })
     })
 })

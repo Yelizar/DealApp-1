@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 from django.views.generic import View, UpdateView, CreateView, DeleteView
 from django.shortcuts import redirect
 from .models import Goods
@@ -18,8 +18,15 @@ class SuppliersGoodsView(View):
     template_name = 'supplier_pages/list_goods.html'
 
     def get(self, request):
+        template = self.template_name
         goods = Goods.objects.filter(supplier=request.user)
-        return render(request, self.template_name, locals())
+        if request.is_ajax():
+            try:
+                if request.GET['data'] == 'get_page':
+                    return render_to_response(template, locals())
+            except KeyError:
+                ''''''
+
 
 
 class SupplierGoodsCreateView(CreateView):

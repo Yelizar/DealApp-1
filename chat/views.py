@@ -17,11 +17,9 @@ class ChatView(View):
         if request.is_ajax():
             try:
                 if request.GET['data'] == 'get_page':
-                    print('work')
                     return render_to_response(template, locals())
             except KeyError:
                 dat = message
-                print('step 3')
                 return HttpResponse(dat, content_type='application/json')
 
 

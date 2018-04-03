@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 from django.views.generic import View
 from django.contrib.auth.models import User
 from access.models import UserProfile
@@ -16,5 +16,12 @@ class AboutUsView(View):
     template_name = 'base/about.html'
 
     def get(self, request):
-        return render(request, self.template_name)
+        template = self.template_name
+        if request.is_ajax():
+            try:
+                if request.GET['data'] == 'get_page':
+                    return render_to_response(template, locals())
+            except KeyError:
+                return render(request, self.template_name)
+
 
