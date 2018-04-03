@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, render_to_response
 from django.views.generic import View
 from django.db.models import Count
 from .forms import *
@@ -15,9 +15,14 @@ class ChatView(View):
         messages = Message.objects.filter(session__members=request.user.id).exclude(user=request.user.id).filter(is_readed=False)
         message = len(messages)
         if request.is_ajax():
-            dat = message
-            return HttpResponse(dat, content_type='application/json')
-        return render(request, template, locals())
+            try:
+                if request.GET['data'] == 'get_page':
+                    print('work')
+                    return render_to_response(template, locals())
+            except KeyError:
+                dat = message
+                print('step 3')
+                return HttpResponse(dat, content_type='application/json')
 
 
 class MessageView(View):

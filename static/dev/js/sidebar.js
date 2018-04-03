@@ -1,0 +1,14 @@
+$(document).ready(function () {
+    $('#string-mes').focusin(function() {
+        $.ajax({
+            type: 'GET',
+            url: "http://127.0.0.1:8000/chat/",
+            data: {data: 'get_page'},
+            success: function (template) {
+
+                $('#main-box').html(template)
+
+            }
+        })
+    })
+})
