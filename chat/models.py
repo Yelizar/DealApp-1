@@ -26,3 +26,4 @@ class Message(models.Model):
         return self.message
 
 
+ 
