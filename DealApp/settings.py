@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'access',
     'chat',
     'suppliers',
+    'buyers',
 
     # all-auth requered apps
     'allauth',
@@ -152,7 +153,7 @@ USE_TZ = True
 AUTH_USER_MODEL = "access.UserProfile"
 
 LOGIN_REDIRECT_URL = '/'
-# ACCOUNT_FORMS = {'signup': 'access.forms.UserCreationForm'}
+ACCOUNT_FORMS = {'signup': 'access.forms.SignUpForm'}
 LOGIN_URL = 'accounts/login'
 ACCOUNT_SESSION_REMEMBER = None
 
@@ -161,6 +162,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
   os.path.join(BASE_DIR, "static", "dev"),
 )
+
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static", "static_root")
 

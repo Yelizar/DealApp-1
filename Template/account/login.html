@@ -10,7 +10,7 @@
 
             <ul class="nav nav-tabs">
                 <li role="presentation">Log In</li>
-                <li role="presentation"><a href="{% url 'account_signup' %}">Sign Up</a></li>
+                <li role="presentation"><a href="{% url 'access:signup' %}">Sign Up</a></li>
             </ul>
             <div class="in_and_up_form">
                 {% get_providers as socialaccount_providers %}
@@ -37,7 +37,7 @@
                 <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
                 {% endif %}
 
-                <form class="login" method="POST" action="{% url 'account_login' %}">
+                <form class="login" method="POST" action="{% url 'access:login' %}">
                   {% csrf_token %}
                   {{ form.as_p }}
                   {% if redirect_field_value %}
