@@ -31,8 +31,8 @@
                 </ul>
             </div>
                 {% else %}
-                <button class="btn sidebar-login-btn"><a href="{% url 'account_login' %}">Login</a></button>
-                <button class="btn sidebar-signup-btn"><a href="{% url 'account_signup' %}">Sign Up</a></button>
+                <button class="btn sidebar-login-btn"><a href="{% url 'access:login' %}">Login</a></button>
+                <button class="btn sidebar-signup-btn"><a href="{% url 'access:signup' %}">Sign Up</a></button>
             {% endif %}
         </div>
     </div>
