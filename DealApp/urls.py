@@ -22,9 +22,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path(r'', include('base.urls')),
     path(r'', include('access.urls')),
-    path(r'home/', include('suppliers.urls')),
-    path(r'home/', include('buyers.urls')),
-    path(r'chat/', include('chat.urls')),
+    path(r'', include('suppliers.urls')),
+    path(r'', include('buyers.urls')),
+    path(r'', include('chat.urls')),
     # path(r'profile/', include('access.urls')),
 
 ]
