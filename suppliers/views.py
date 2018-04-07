@@ -11,6 +11,7 @@ class SupplierHomePage(View):
     template_name = 'supplier_pages/supplier_home.html'
 
     def get(self, request):
+        print(2)
         return render(request, self.template_name, locals())
 
 

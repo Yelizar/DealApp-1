@@ -45,13 +45,8 @@ INSTALLED_APPS = [
     'chat',
     'suppliers',
     'buyers',
-
-    # all-auth requered apps
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-
 ]
+
 # """I'm trying to send an mail"""
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
@@ -62,8 +57,7 @@ EMAIL_HOST_PASSWORD = 'ParolOtProekta'
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-# `allauth` specific authentication methods, such as login by e-mail
-    'allauth.account.auth_backends.AuthenticationBackend',
+
    )
 
 MIDDLEWARE = [
