@@ -4,7 +4,7 @@ from django.conf import settings
 from django.core.mail import send_mail
 from . import forms
 from .models import UserProfile
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 import os
 
 
@@ -88,4 +88,8 @@ class LogInView(View):
                 return redirect('suppliers:supplier_home')
         return redirect('base:home')
 
+
+def userlogout(request):
+    logout(request)
+    return redirect('base:home')
 
