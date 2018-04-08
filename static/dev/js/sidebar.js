@@ -15,7 +15,7 @@ $(document).ready(function () {
     $('#string-products').focusin(function() {
         $.ajax({
             type: 'GET',
-            url: "http://127.0.0.1:8000/suppliers/goods/",
+            url: "http://127.0.0.1:8000/goods/",
             data: {data: 'get_page'},
             success: function (template) {
 

@@ -78,8 +78,6 @@ class LogInView(View):
         user = authenticate(request, username=username, password=password)
         user_obj = UserProfile.objects.get(username=user)
         user_type = user.user_type
-        print(user_obj)
-        print(user_type)
         login(request, user)
         if user is not None:
             if user_type == 'buyer':

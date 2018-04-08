@@ -1,17 +1,14 @@
 from django.shortcuts import render, render_to_response
 from django.views.generic import View, UpdateView, CreateView, DeleteView
-from django.shortcuts import redirect
 from .models import Goods
-from django.contrib.auth.models import User
-from access.models import UserProfile
-# Create your views here.
+from django.http import HttpResponse
+
 
 
 class SupplierHomePage(View):
     template_name = 'supplier_pages/supplier_home.html'
 
     def get(self, request):
-        print(2)
         return render(request, self.template_name, locals())
 
 
@@ -24,9 +21,11 @@ class SuppliersGoodsView(View):
         if request.is_ajax():
             try:
                 if request.GET['data'] == 'get_page':
+
                     return render_to_response(template, locals())
             except KeyError:
-                ''''''
+                """"""
+        return render(request, self.template_name, locals())
 
 
 
