@@ -14,7 +14,7 @@ class SignUpView(View):
     def photo_choice(self, user_obj,  user_type):
         if user_type == 'buyer':
             user_obj.photo = 'access/profile_photo/default-ava.png'
-            return  user_obj.photo
+            return user_obj.photo
         else:
             user_obj.photo = 'access/profile_photo/avatar-s.png'
             return user_obj.photo
@@ -73,7 +73,6 @@ class LogInView(View):
         return render(request, template, locals())
 
     def post(self, request, *args, **kwargs):
-        template = self.template
         username = request.POST.get('username', '')
         password = request.POST.get('password', '')
         user = authenticate(request, username=username, password=password)
@@ -81,14 +80,12 @@ class LogInView(View):
         user_type = user.user_type
         print(user_obj)
         print(user_type)
+        login(request, user)
         if user is not None:
             if user_type == 'buyer':
-                login(request, user)
                 return redirect('buyers:buyer_home')
             elif user_type == 'supplier':
-                login(request, user)
                 return redirect('suppliers:supplier_home')
-
-        return render(request, template, locals())
+        return redirect('base:home')
 
 
