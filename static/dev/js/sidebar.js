@@ -36,5 +36,20 @@ $(document).ready(function () {
 
             }
         })
+    });
+
+    $('#string-clients').focusin(function() {
+        var user_id;
+            user_id = $('#string-clients').attr('data-q-id');
+        $.ajax({
+            type: 'GET',
+            url: "http://127.0.0.1:8000/clients/",
+            data: {data: user_id},
+            success: function (template) {
+
+                $('#main-box').html(template)
+
+            }
+        })
     })
 })

@@ -28,7 +28,6 @@ class SuppliersGoodsView(View):
         return render(request, self.template_name, locals())
 
 
-
 class SupplierGoodsCreateView(CreateView):
     template_name = 'supplier_pages/create_goods.html'
     model = Goods

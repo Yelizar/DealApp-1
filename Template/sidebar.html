@@ -13,14 +13,13 @@
                 <ul>{% message request user.id as message%}
                     <li><a href="{% url 'access:logout' %}">Logout</a></li>
                     <li class="string-mes" id="string-mes"><a href="#"><p class="mes" id="mes" >{{ message }}</p> Messages</a></li>
+                    <li class="string-clients" id="string-clients" data-q-id="{{ request.user.id }}"><a href="#">My clients</a></li>
                     {% if request.user.user_type == 'supplier' %}
                         <hr>
-                        <li><a href="#">My buyer</a></li>
                         <li><a href="#">Order history</a></li>
-                        <li class="string-products" id="string-products"><a href="#">My products</a></li>
+                        <li class="string-products" id="string-products" ><a href="#">My products</a></li>
                     {% elif request.user.user_type == 'buer' %}
                         <hr>
-                        <li><a href="#">My suppliers</a></li>
                         <li><a href="#">Order history</a></li>
                          <li><a href="#">My stores</a></li>
                     {% else %}

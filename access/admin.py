@@ -30,3 +30,10 @@ class BuyerAddressAdmin(admin.ModelAdmin):
 
 admin.site.register(Address, BuyerAddressAdmin)
 
+
+class ClientsAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Clients._meta.fields]
+
+
+admin.site.register(Clients, ClientsAdmin)
+

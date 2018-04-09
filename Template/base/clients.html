@@ -1,0 +1,17 @@
+{% block content %}
+    <div class="col-lg-3 left-side">
+        <p>To find a new buyer you can use "search"</p>
+        <a href="#" class="btn btn-primary" role="button">New Item</a>
+    </div>
+    <div class="container">
+        <div class="row">
+                <div class="col-lg-3 card-box">
+                     <ul class="list-group">
+                      {% for client in clients %}
+                          <li>{{ client }}</li>
+                      {% endfor %}
+                    </ul>
+                </div>
+        </div>
+    </div>
+{% endblock %}

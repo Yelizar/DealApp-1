@@ -3,6 +3,7 @@ from django.views.generic import View
 from django.contrib.auth.models import User
 from access.models import UserProfile
 from django.contrib.auth.decorators import login_required
+from access.models import Clients
 
 
 class HomeView(View):
@@ -25,3 +26,17 @@ class AboutUsView(View):
                 return render(request, self.template_name)
 
 
+class ClietnsView(View):
+    template_name ='base/clients.html'
+
+    def get(self, request):
+        template = self.template_name
+        if request.is_ajax():
+            try:
+                if request.GET['data']:
+                    user_id = request.GET['data']
+
+                    clients = Clients.objects.filter(members__in=[user_id])
+                    return render_to_response(template, locals())
+            except KeyError:
+                """"""
