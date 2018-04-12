@@ -1,8 +1,7 @@
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render, redirect
 from django.views.generic import View
-from django.contrib.auth.models import User
+
 from access.models import UserProfile
-from django.contrib.auth.decorators import login_required
 from access.models import Clients
 
 
@@ -30,9 +29,17 @@ class AboutUsView(View):
 class ClietnsView(View):
     template_name ='base/clients.html'
 
-    def get(self, request, id):
+    def get(self, request):
         template = self.template_name
-        user = UserProfile.objects.filter(id=id)
-        clients = Clients.objects.filter(members__in=[id])
-        print(clients)
+        current_user = Clients.objects.get(current_user=request.user)
+        clients = current_user.members.all()
         return render(request, self.template_name, locals())
+
+
+def change_client(request, operator, pk):
+    client = UserProfile.objects.get(pk=pk)
+    if operator == 'add':
+        Clients.make_client(request.user, client)
+    elif operator == 'remove':
+        Clients.remove_client(request.user, client)
+    return redirect('base:clients')

@@ -1,6 +1,6 @@
-from django.db import models
-from access.models import *
 from django.utils import timezone
+
+from access.models import *
 
 
 class Session(models.Model):

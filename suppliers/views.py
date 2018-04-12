@@ -1,8 +1,7 @@
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render
 from django.views.generic import View, UpdateView, CreateView, DeleteView
+
 from .models import Goods
-from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
 
 
 class SupplierHomePage(View):

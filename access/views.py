@@ -1,11 +1,11 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect
 from django.views.generic import View
 from django.conf import settings
 from django.core.mail import send_mail
+from django.contrib.auth import authenticate, login, logout
+
 from . import forms
 from .models import UserProfile
-from django.contrib.auth import authenticate, login, logout
-import os
 
 
 class SignUpView(View):
