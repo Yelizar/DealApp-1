@@ -13,7 +13,7 @@
                 <ul>{% message request user.id as message%}
                     <li><a href="{% url 'access:logout' %}">Logout</a></li>
                     <li class="string-mes" id="string-mes"><a href="#"><p class="mes" id="mes" >{{ message }}</p> Messages</a></li>
-                    <li class="string-clients" id="string-clients" data-q-id="{{ request.user.id }}"><a href="{% url 'base:clients' %}">My clients</a></li>
+                    <li class="string-clients" id="string-clients" data-q-id="{{ request.user.id }}"><a href="{% url 'base:clients' request.user.id %}">My clients</a></li>
                     {% if request.user.user_type == 'supplier' %}
                         <hr>
                         <li><a href="#">Order history</a></li>

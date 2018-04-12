@@ -30,16 +30,9 @@ class AboutUsView(View):
 class ClietnsView(View):
     template_name ='base/clients.html'
 
-    def get(self, request):
+    def get(self, request, id):
         template = self.template_name
-        # if request.is_ajax():
-        #     try:
-        #         if request.GET['data']:
-        #             user_id = request.GET['data']
-        #             user = UserProfile.objects.filter(id=user_id)
-        #             clients = Clients.objects.filter(members__in=[user_id])
-        #             print(clients)
-        #
-        #             return render_to_response(template, locals())
-        #     except KeyError:
+        user = UserProfile.objects.filter(id=id)
+        clients = Clients.objects.filter(members__in=[id])
+        print(clients)
         return render(request, self.template_name, locals())
