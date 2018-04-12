@@ -76,7 +76,6 @@ class LogInView(View):
         username = request.POST.get('username', '')
         password = request.POST.get('password', '')
         user = authenticate(request, username=username, password=password)
-        user_obj = UserProfile.objects.get(username=user)
         user_type = user.user_type
         login(request, user)
         if user is not None:
