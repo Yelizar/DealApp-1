@@ -97,8 +97,6 @@ class Clients(models.Model):
         client, created = cls.objects.get_or_create(current_user=current_user)
         client.members.remove(new_client)
 
-
-
     class Meta:
         verbose_name = 'Client'
         verbose_name_plural = 'Clients'

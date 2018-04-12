@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect, reverse, render_to_response
 from django.views.generic import View
 from django.db.models import Count
+
 from .forms import *
 from .models import Session
-from django.http import HttpResponse
 
 
 class ChatView(View):

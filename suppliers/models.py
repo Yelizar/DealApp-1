@@ -1,6 +1,7 @@
 from django.db import models
-from access.models import UserProfile
 from django.utils import timezone
+
+from access.models import UserProfile
 
 
 class Goods(models.Model):
