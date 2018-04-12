@@ -18,12 +18,13 @@ class AboutUsView(View):
 
     def get(self, request):
         template = self.template_name
-        if request.is_ajax():
-            try:
-                if request.GET['data'] == 'get_page':
-                    return render_to_response(template, locals())
-            except KeyError:
-                return render(request, self.template_name)
+        # if request.is_ajax():
+        #     try:
+        #         if request.GET['data'] == 'get_page':
+        #             return render_to_response(template, locals())
+        #     except KeyError:
+        #         return render(request, self.template_name)
+        return render(request, self.template_name, locals())
 
 
 class ClietnsView(View):
@@ -31,14 +32,14 @@ class ClietnsView(View):
 
     def get(self, request):
         template = self.template_name
-        if request.is_ajax():
-            try:
-                if request.GET['data']:
-                    user_id = request.GET['data']
-                    user = UserProfile.objects.filter(id=user_id)
-                    clients = Clients.objects.filter(members__in=[user_id])
-                    print(clients)
-
-                    return render_to_response(template, locals())
-            except KeyError:
-                """"""
+        # if request.is_ajax():
+        #     try:
+        #         if request.GET['data']:
+        #             user_id = request.GET['data']
+        #             user = UserProfile.objects.filter(id=user_id)
+        #             clients = Clients.objects.filter(members__in=[user_id])
+        #             print(clients)
+        #
+        #             return render_to_response(template, locals())
+        #     except KeyError:
+        return render(request, self.template_name, locals())

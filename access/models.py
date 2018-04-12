@@ -92,6 +92,11 @@ class Clients(models.Model):
         client, created = cls.objects.get_or_create(current_user=current_user)
         client.members.add(new_client)
 
+    @classmethod
+    def remove_client(cls, current_user, new_client):
+        client, created = cls.objects.get_or_create(current_user=current_user)
+        client.members.remove(new_client)
+
 
 
     class Meta:

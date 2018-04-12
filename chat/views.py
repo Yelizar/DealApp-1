@@ -20,7 +20,7 @@ class ChatView(View):
                     return render_to_response(template, locals())
             except KeyError:
                 dat = message
-                return HttpResponse(dat, content_type='application/json')
+                return render(request, self.template_name, locals())
 
 
 class MessageView(View):

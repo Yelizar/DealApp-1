@@ -8,7 +8,6 @@ from django.http import HttpResponse
 class SupplierHomePage(View):
     template_name = 'supplier_pages/supplier_home.html'
 
-    @login_required(login_url='/login/')
     def get(self, request):
         return render(request, self.template_name, locals())
 
@@ -19,13 +18,13 @@ class SuppliersGoodsView(View):
     def get(self, request):
         template = self.template_name
         goods = Goods.objects.filter(supplier=request.user)
-        if request.is_ajax():
-            try:
-                if request.GET['data'] == 'get_page':
-
-                    return render_to_response(template, locals())
-            except KeyError:
-                """"""
+        # if request.is_ajax():
+        #     try:
+        #         if request.GET['data'] == 'get_page':
+        #
+        #             return render_to_response(template, locals())
+        #     except KeyError:
+        #         """"""
         return render(request, self.template_name, locals())
 
 
