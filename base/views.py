@@ -35,8 +35,10 @@ class ClietnsView(View):
             try:
                 if request.GET['data']:
                     user_id = request.GET['data']
-
+                    user = UserProfile.objects.filter(id=user_id)
                     clients = Clients.objects.filter(members__in=[user_id])
+                    print(clients)
+
                     return render_to_response(template, locals())
             except KeyError:
                 """"""
