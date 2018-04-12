@@ -19,8 +19,8 @@ class ChatView(View):
                 if request.GET['data'] == 'get_page':
                     return render_to_response(template, locals())
             except KeyError:
-                dat = message
-                return render(request, self.template_name, locals())
+                """"""
+        return render(request, self.template_name, locals())
 
 
 class MessageView(View):

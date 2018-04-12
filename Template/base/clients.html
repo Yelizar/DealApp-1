@@ -6,10 +6,17 @@
     </div>
     <div class="container">
         <div class="row">
-                <div class="col-lg-3 card-box">
-                     <ul class="list-group">
+                <div class="col-lg-3 list-clients-box">
+                     <ul class="list-clients">
                       {% for client in clients %}
-                          <li>{{ client.username }}</li>
+                          <li class="string-clients">
+                              <div>
+                                  <h4>{{ client.username }}</h4>
+                                  <h6>{{ client.email }}</h6>
+                                   <a href="{% url 'chat:create_session' client.id %}" class="btn btn-sm btn-success" role="button">Send message</a>
+                                   <a href="{% url 'base:change_clients' 'remove' client.id %}" class="btn btn-sm btn-danger" role="button">Remove</a>
+                              </div>
+                          </li>
                       {% endfor %}
                     </ul>
                 </div>

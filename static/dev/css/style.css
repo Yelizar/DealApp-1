@@ -114,6 +114,24 @@
     color: #5a6268;
     }
 
+/*clients page */
+.list-clients-box{
+
+    width: 750px;
+}
+
+.list-clients{
+    list-style-type: none;
+
+}
+
+.string-clients{
+    background-color: grey;
+    width: 200%;
+    margin: 2px 2px 2px 2px;
+}
+
+
 
 
 
