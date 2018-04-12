@@ -1,10 +1,12 @@
-.sidebar-login-btn {
+.sidebar-login-btn, .sidebar-login-btn a {
+    color: black !important;
     border-radius: 0;
     margin-left: 15%;
     float: left;
 }
 
-.sidebar-signup-btn {
+.sidebar-signup-btn, .sidebar-signup-btn a {
+    color: black !important;
     border-radius: 0;
     margin-right: 15%;
     float: right;
@@ -32,7 +34,7 @@
     left: 0;
 }
 
-.sidebar a, a:hover {
+.sidebar a {
     color: white;
     text-decoration: none;
 }

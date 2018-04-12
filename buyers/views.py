@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from django.views.generic import View
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
 
-class BuyerHome(View):
+class BuyerHome(LoginRequiredMixin, View):
     template = 'buyer_pages/buyer_home.html'
+    login_url = '/login/'
+    redirect_field_name = 'required'
 
     def get(self, request):
-        print(1)
         return render(request, self.template, locals())

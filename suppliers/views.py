@@ -1,13 +1,14 @@
 from django.shortcuts import render, render_to_response
 from django.views.generic import View, UpdateView, CreateView, DeleteView
 from .models import Goods
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-
 
 
 class SupplierHomePage(View):
     template_name = 'supplier_pages/supplier_home.html'
 
+    @login_required(login_url='/login/')
     def get(self, request):
         return render(request, self.template_name, locals())
 
