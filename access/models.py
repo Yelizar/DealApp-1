@@ -79,6 +79,18 @@ class Address(models.Model):
         return '{}'.format(self.buyer)
 
 
+class Clients(models.Model):
+    members = models.ManyToManyField(UserProfile)
+    favor = models.BooleanField(default=False)
+
+    created = models.DateTimeField(auto_now=False, auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True, auto_now_add=False)
+
+    class Meta:
+        verbose_name = 'Client'
+        verbose_name_plural = 'Clients'
+
+
 
 
 
