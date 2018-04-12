@@ -80,11 +80,19 @@ class Address(models.Model):
 
 
 class Clients(models.Model):
-    members = models.ManyToManyField(UserProfile)
+    members = models.ManyToManyField(UserProfile, )
+    current_user = models.ForeignKey(UserProfile, related_name='owner', null=True, on_delete=models.CASCADE)
     favor = models.BooleanField(default=False)
 
     created = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
+
+    @classmethod
+    def make_client(cls, current_user, new_client):
+        client, created = cls.objects.get_or_create(current_user=current_user)
+        client.members.add(new_client)
+
+
 
     class Meta:
         verbose_name = 'Client'
