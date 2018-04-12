@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     {% for user in search_users %}
+        <img src="{{ user.photo.url }}" class="img-fluid">
         {{ user.username }}
     {% endfor %}
 {% endblock %}
