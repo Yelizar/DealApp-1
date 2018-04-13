@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse, render_to_response
+from django.shortcuts import render, redirect, reverse, render_to_response, HttpResponse
 from django.views.generic import View
 from django.db.models import Count
 
@@ -19,7 +19,8 @@ class ChatView(View):
                 if request.GET['data'] == 'get_page':
                     return render_to_response(template, locals())
             except KeyError:
-                """"""
+                dat = message
+                return HttpResponse(dat)
         return render(request, self.template_name, locals())
 
 
