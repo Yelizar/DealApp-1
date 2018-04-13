@@ -1,6 +1,14 @@
 /*WE NEED A COMMENT EVERYWHERE*/
 /*header*/
+.container-fluid {
+    width: 100%;
+    background-color: #edeef0;
+}
 
+body, html {
+    width: 100%;
+    background-color: #edeef0;
+}
 .navbar-main {
     width: 100%;
     height: 50px;

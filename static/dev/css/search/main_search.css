@@ -1,5 +1,5 @@
 .search-item-img {
-    width: 100px;
+    width: 70px;
     height: auto;
     padding: auto;
     margin: auto;
@@ -14,3 +14,11 @@
     color: #201290;
 }
 
+.all-search {
+        background-color: #ffffff;
+    width: 805px;
+    border-radius: 5px;
+    border: solid 1px #c1c1c1;
+    margin-top: 20px;
+    min-height: 420%;
+}
