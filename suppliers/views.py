@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import View, UpdateView, CreateView, DeleteView
 
-from .models import Goods
+
+from .models import Goods, UserProfile
 
 
 class SupplierHomePage(View):
@@ -30,15 +31,28 @@ class SuppliersGoodsView(View):
 class SupplierGoodsCreateView(CreateView):
     template_name = 'supplier_pages/create_goods.html'
     model = Goods
-    fields = '__all__'
+    fields = ['name', 'price', 'picture', 'description']
     success_url = '../../goods/'
+
+    def form_valid(self, form):
+        supplier = UserProfile.objects.get(pk=self.request.user.id)
+        form.instance.supplier = supplier
+        print(form.instance.supplier)
+        return super(SupplierGoodsCreateView, self).form_valid(form)
 
 
 class SupplierGoodsUpdateView(UpdateView):
     template_name = 'supplier_pages/update_goods.html'
     model = Goods
     success_url = '../../../goods/'
-    fields = '__all__'
+    fields = ['name', 'price', 'picture', 'description']
+
+    def form_valid(self, form):
+        supplier = UserProfile.objects.get(pk=self.request.user.id)
+        form.instance.supplier = supplier
+        print(form.instance.supplier)
+        return super(SupplierGoodsUpdateView, self).form_valid(form)
+
 
 
 class SupplierGoodsDeleteView(DeleteView):

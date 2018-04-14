@@ -8,7 +8,10 @@
         <div class="row">
                 <div class="col-lg-3 list-clients-box">
                      <ul class="list-clients">
-                      {% for client in clients %}
+                     {% if clients.count == 0 %}
+                     <h4>You haven't clients yet</h4>
+                     {% else %}
+                         {% for client in clients %}
                           <li class="string-clients">
                               <div>
                                   <h4>{{ client.username }}</h4>
@@ -17,7 +20,8 @@
                                    <a href="{% url 'base:change_clients' 'remove' client.id %}" class="btn btn-sm btn-danger" role="button">Remove</a>
                               </div>
                           </li>
-                      {% endfor %}
+                        {% endfor %}
+                      {% endif %}
                     </ul>
                 </div>
         </div>

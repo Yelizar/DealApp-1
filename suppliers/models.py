@@ -16,6 +16,11 @@ class Goods(models.Model):
 
     created = models.DateTimeField(default=timezone.now)
 
+    # @classmethod
+    # def choosing_supplier(cls, current_user):
+    #     supplier, created, = cls.objects.get(supplier=current_user)
+
+
     class Meta:
         ordering = ['created']
 

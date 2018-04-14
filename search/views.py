@@ -12,8 +12,14 @@ def EntireSearch(request):
     query = request.GET.get('q')
     search_users = UserProfile.objects.filter(username__icontains=query)[0:4]
     search_products = Goods.objects.filter(name__icontains=query)[0:4]
+
+    if request.is_ajax():
+        avaliableTags = []
+        print('1')
+        for i in search_users:
+            avaliableTags.append(i)
+        for i in search_products:
+            avaliableTags.append(i)
+            return HttpResponse(avaliableTags)
+
     return render(request, template, locals())
-
-
-
-

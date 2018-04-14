@@ -4,5 +4,7 @@ from . import views
 app_name = 'search'
 
 urlpatterns = [
+
     path('', views.EntireSearch, name='search'),
+
 ]
