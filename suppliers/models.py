@@ -4,22 +4,18 @@ from django.utils import timezone
 from access.models import UserProfile
 
 
+
 class Goods(models.Model):
     supplier = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     name = models.CharField(max_length=64, default=None, blank=True)
     price = models.FloatField('Price', default=0)
-    picture = models.ImageField('Picture', upload_to='suppliers/goods', blank=True)
+    picture = models.ImageField('Picture', upload_to='supplier/'+'/goods', blank=True)
     description = models.TextField('Description', max_length=2048, default=None, blank=True)
     rating = models.IntegerField('Rating', default=0, null=True)
 
     is_active = models.BooleanField(default=True, blank=True)
 
     created = models.DateTimeField(default=timezone.now)
-
-    # @classmethod
-    # def choosing_supplier(cls, current_user):
-    #     supplier, created, = cls.objects.get(supplier=current_user)
-
 
     class Meta:
         ordering = ['created']

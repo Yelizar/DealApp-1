@@ -4,6 +4,8 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.contrib.auth import authenticate, login, logout
 
+from DealApp.settings import BASE_DIR
+import os
 from . import forms
 from .models import UserProfile
 
@@ -47,17 +49,20 @@ class SignUpView(View):
                             'now your are registered on http://127.0.0.1:8000/'
 
             user_auth = authenticate(request, username=username, password=password)
+
             if user_auth is not None:
                 send_mail(subject=email_subject, from_email=settings.EMAIL_HOST_USER, recipient_list=[user_email],
                           message=email_content,
                           fail_silently=False)
 
                 if user_type == 'buyer':
-                    print(user_type)
+                    if not os.path.exists(BASE_DIR + '/media/buyer/' + str(username)):
+                        os.makedirs(BASE_DIR + '/media/buyer/' + str(username))
                     login(request, user_auth)
                     return redirect('buyers:buyer_home')
                 elif user_type == 'supplier':
-                    print(user_type)
+                    if not os.path.exists(BASE_DIR + '/media/suppliers/' + str(username)):
+                        os.makedirs(BASE_DIR + '/media/suppliers/' + str(username))
                     login(request, user_auth)
                     return redirect('suppliers:supplier_home')
 
