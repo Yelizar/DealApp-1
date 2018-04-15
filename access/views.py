@@ -13,12 +13,6 @@ from .models import UserProfile, user_photo_directory_path
 class SignUpView(View):
     template_name = 'account/signup.html'
 
-    def photo_choice(self, user_obj):
-        if user_obj.user_type == 'buyer':
-            user_obj.photo = 'access/profile_photo/avatar-s.png'
-        else:
-            user_obj.photo = 'access/profile_photo/avatar-s.png'
-
     def get(self, request, *args, **kwargs):
         template = self.template_name
         form = forms.SignUpForm()
@@ -37,8 +31,6 @@ class SignUpView(View):
 
             user_obj = UserProfile.objects.get(username=username)
 
-            self.photo_choice(user_obj)
-
             user = form.save(commit=True)
             user_obj.save()
 
@@ -54,13 +46,9 @@ class SignUpView(View):
                           fail_silently=False)
 
                 if user_type == 'buyer':
-                    # if not os.path.exists(BASE_DIR + '/media/buyer/' + str(username)):
-                    #     os.makedirs(BASE_DIR + '/media/buyer/' + str(username))
                     login(request, user_auth)
                     return redirect('buyers:buyer_home')
                 elif user_type == 'supplier':
-                    # if not os.path.exists(BASE_DIR + '/media/suppliers/' + str(username)):
-                    #     os.makedirs(BASE_DIR + '/media/suppliers/' + str(username))
                     login(request, user_auth)
                     return redirect('suppliers:supplier_home')
 

@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
-from django.views.generic import View
+from django.views.generic import View, DetailView
 
 from access.models import UserProfile
 from access.models import Clients
+from suppliers.models import Goods
 
 
 class HomeView(View):
@@ -30,7 +31,6 @@ class ClietnsView(View):
     template_name ='base/clients.html'
 
     def get(self, request):
-        template = self.template_name
         try:
             current_user = Clients.objects.get(current_user=request.user)
             clients = current_user.members.all()
@@ -46,3 +46,22 @@ def change_client(request, operator, pk):
     elif operator == 'remove':
         Clients.remove_client(request.user, client)
     return redirect('base:clients')
+
+
+class SettingsDetailView(DetailView):
+    template_name = 'base/settings.html'
+    model = UserProfile
+
+    def get_context_data(self, **kwargs):
+        user = Clients.objects.get(current_user=kwargs['object'])
+        clients = user.members.all()
+        context = super().get_context_data(**kwargs)
+        context['clients'] = clients
+        if kwargs['object'] == 'buyer':
+            return context
+        elif kwargs['object'].user_type == 'supplier':
+            goods = Goods.objects.filter(supplier=kwargs['object'])
+            context['goods'] = goods
+            return context
+        else:
+            return context

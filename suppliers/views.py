@@ -52,7 +52,6 @@ class SupplierGoodsUpdateView(UpdateView):
         return super(SupplierGoodsUpdateView, self).form_valid(form)
 
 
-
 class SupplierGoodsDeleteView(DeleteView):
     template_name = 'supplier_pages/delete_goods.html'
     model = Goods

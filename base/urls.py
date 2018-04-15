@@ -12,6 +12,8 @@ urlpatterns = [
 
     path('clients/', views.ClietnsView.as_view(), name='clients'),
 
-    path('clients/<slug:operator>/<int:pk>', views.change_client, name='change_clients')
+    path('clients/<slug:operator>/<int:pk>', views.change_client, name='change_clients'),
+
+    path('settings/<int:pk>', views.SettingsDetailView.as_view(), name='settings')
 
 ]

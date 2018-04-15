@@ -5,7 +5,11 @@
             {% if user.is_authenticated %}
             <span><h2>Your Profile</h2></span>
             <div class="profile-img">
+            {% if uesr.photo %}
                 <img src="{{ user.photo.url }}" class="img-fluid">
+            {% else %}
+                <img src="../media/access/profile_photo/avatar-admin.jpg" class="img-fluid">
+            {% endif %}
             </div>
             <div class="profile-username"><i class="fas fa-user user-icon"></i><span>{{ user.username }}</span></div>
             <hr>
@@ -26,7 +30,7 @@
                     {% endif %}
                     <hr>
                     <li  id="string-about"><a href="{% url 'base:about' %}">About</a></li>
-                    <li><a href="#">Settings</a></li>
+                    <li><a href="{% url 'base:settings' request.user.id %}">Settings</a></li>
                 </ul>
             </div>
                 {% else %}

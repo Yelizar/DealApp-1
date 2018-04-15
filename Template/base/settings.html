@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="col-lg-3 left-side">
+        <p>There are some settings NATAHA do it please ahuenno</p>
+    </div>
+    <div class="container">
+        <div class="row">
+                <div class="col-lg-3 list-clients-box">
+                     {% if object  %}
+                         <h6>Hi {{ object.username }}, you are in your settings</h6>
+                         You are {{ object.user_type }}
+                         {% if object.user_type == 'supplier' %}
+                             <h6> You have {{ goods.count }} goods </h6>
+                         {% endif %}
+                         <h6> Friends: {{ clients.count }}</h6>
+                     {% endif %}
+                </div>
+        </div>
+    </div>
+{% endblock %}
