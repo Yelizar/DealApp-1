@@ -37,7 +37,6 @@ class SupplierGoodsCreateView(CreateView):
     def form_valid(self, form):
         supplier = UserProfile.objects.get(pk=self.request.user.id)
         form.instance.supplier = supplier
-        print(form.instance.supplier)
         return super(SupplierGoodsCreateView, self).form_valid(form)
 
 
@@ -50,7 +49,6 @@ class SupplierGoodsUpdateView(UpdateView):
     def form_valid(self, form):
         supplier = UserProfile.objects.get(pk=self.request.user.id)
         form.instance.supplier = supplier
-        print(form.instance.supplier)
         return super(SupplierGoodsUpdateView, self).form_valid(form)
 
 

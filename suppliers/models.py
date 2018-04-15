@@ -5,7 +5,6 @@ from access.models import UserProfile
 
 
 def user_goods_directory_path(instance, filename):
-    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
     return 'suppliers/{0}/goods/{1}'.format(instance.supplier.username, filename)
 
 class Goods(models.Model):

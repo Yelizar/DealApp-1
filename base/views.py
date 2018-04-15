@@ -39,7 +39,6 @@ class ClietnsView(View):
             return render(request, self.template_name, locals())
 
 
-
 def change_client(request, operator, pk):
     client = UserProfile.objects.get(pk=pk)
     if operator == 'add':
