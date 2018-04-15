@@ -7,19 +7,17 @@ from django.contrib.auth import authenticate, login, logout
 from DealApp.settings import BASE_DIR
 import os
 from . import forms
-from .models import UserProfile
+from .models import UserProfile, user_photo_directory_path
 
 
 class SignUpView(View):
     template_name = 'account/signup.html'
 
-    def photo_choice(self, user_obj,  user_type):
-        if user_type == 'buyer':
-            user_obj.photo = 'access/profile_photo/default-ava.png'
-            return user_obj.photo
+    def photo_choice(self, user_obj):
+        if user_obj.user_type == 'buyer':
+            user_obj.photo = 'access/profile_photo/avatar-s.png'
         else:
             user_obj.photo = 'access/profile_photo/avatar-s.png'
-            return user_obj.photo
 
     def get(self, request, *args, **kwargs):
         template = self.template_name
@@ -39,7 +37,7 @@ class SignUpView(View):
 
             user_obj = UserProfile.objects.get(username=username)
 
-            self.photo_choice(user_obj, user_type)
+            self.photo_choice(user_obj)
 
             user = form.save(commit=True)
             user_obj.save()

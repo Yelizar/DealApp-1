@@ -68,10 +68,6 @@ body, html {
     margin-right: -5px;
     margin-left: -5px
 }
-/*Buyer's side*/
-.left-side {
-    background-color: #f79178;
-}
 .buyer-opportunities {
     position: relative;
 }
@@ -79,11 +75,6 @@ body, html {
     position: relative;
     left: 0;
     bottom: 0;
-}
-/* Supplier's side*/
-.right-side {
-    max-height: 100%;
-    background-color: #0c5460;
 }
 
 /* User profile styles*/

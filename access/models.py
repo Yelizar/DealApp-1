@@ -27,6 +27,8 @@ class UserProfileManager(BaseUserManager):
 def user_photo_directory_path(instance, filename):
     if instance.user_type == 'supplier':
         return 'suppliers/{0}/profile_photo/{1}'.format(instance.username, filename)
+    if instance.user_type == 'buyer':
+        return 'buyer/{0}/profile_photo/{1}'.format(instance.username, filename)
 
 
 class UserProfile(AbstractBaseUser, PermissionsMixin, models.Model):

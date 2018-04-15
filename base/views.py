@@ -36,7 +36,7 @@ class ClietnsView(View):
             clients = current_user.members.all()
             return render(request, self.template_name, locals())
         finally:
-            return render(request, self.template_name)
+            return render(request, self.template_name, locals())
 
 
 
