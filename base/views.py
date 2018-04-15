@@ -32,11 +32,12 @@ class ClietnsView(View):
     def get(self, request):
         template = self.template_name
         try:
-            self.current_user = Clients.objects.get(current_user=request.user)
-            clients = self.current_user.members.all()
+            current_user = Clients.objects.get(current_user=request.user)
+            clients = current_user.members.all()
             return render(request, self.template_name, locals())
-        except self.current_user.DoesNotExist:
-            return render(request, self.template_name, locals())
+        finally:
+            return render(request, self.template_name)
+
 
 
 def change_client(request, operator, pk):

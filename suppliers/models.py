@@ -4,12 +4,15 @@ from django.utils import timezone
 from access.models import UserProfile
 
 
+def user_goods_directory_path(instance, filename):
+    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
+    return 'suppliers/{0}/goods/{1}'.format(instance.supplier.username, filename)
 
 class Goods(models.Model):
     supplier = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     name = models.CharField(max_length=64, default=None, blank=True)
     price = models.FloatField('Price', default=0)
-    picture = models.ImageField('Picture', upload_to='supplier/'+'/goods', blank=True)
+    picture = models.ImageField('Picture', upload_to=user_goods_directory_path, blank=True)
     description = models.TextField('Description', max_length=2048, default=None, blank=True)
     rating = models.IntegerField('Rating', default=0, null=True)
 

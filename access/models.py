@@ -24,6 +24,11 @@ class UserProfileManager(BaseUserManager):
         return user
 
 
+def user_photo_directory_path(instance, filename):
+    if instance.user_type == 'supplier':
+        return 'suppliers/{0}/profile_photo/{1}'.format(instance.username, filename)
+
+
 class UserProfile(AbstractBaseUser, PermissionsMixin, models.Model):
 
     TYPE = [('buyer', 'buyer'),
@@ -31,7 +36,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin, models.Model):
 
     username = models.CharField(max_length=16, default=None, blank=True, unique=True)
     email = models.EmailField(verbose_name='email address', max_length=255, unique=True)
-    photo = models.ImageField('Profile photo', upload_to='access/profile_photo', blank=True)
+    photo = models.ImageField('Profile photo', upload_to=user_photo_directory_path, blank=True)
     phone = models.CharField('Phone', default=None, blank=True, max_length=128, null=True)
     is_active = models.BooleanField(default=True, blank=True)
     is_superuser = models.BooleanField(default=False, blank=True)

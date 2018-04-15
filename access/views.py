@@ -56,13 +56,13 @@ class SignUpView(View):
                           fail_silently=False)
 
                 if user_type == 'buyer':
-                    if not os.path.exists(BASE_DIR + '/media/buyer/' + str(username)):
-                        os.makedirs(BASE_DIR + '/media/buyer/' + str(username))
+                    # if not os.path.exists(BASE_DIR + '/media/buyer/' + str(username)):
+                    #     os.makedirs(BASE_DIR + '/media/buyer/' + str(username))
                     login(request, user_auth)
                     return redirect('buyers:buyer_home')
                 elif user_type == 'supplier':
-                    if not os.path.exists(BASE_DIR + '/media/suppliers/' + str(username)):
-                        os.makedirs(BASE_DIR + '/media/suppliers/' + str(username))
+                    # if not os.path.exists(BASE_DIR + '/media/suppliers/' + str(username)):
+                    #     os.makedirs(BASE_DIR + '/media/suppliers/' + str(username))
                     login(request, user_auth)
                     return redirect('suppliers:supplier_home')
 
