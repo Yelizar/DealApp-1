@@ -11,7 +11,7 @@ from .models import UserProfile
 
 
 class SignUpView(View):
-    template = 'account/signup.html'
+    template_name = 'account/signup.html'
 
     def photo_choice(self, user_obj,  user_type):
         if user_type == 'buyer':
@@ -22,12 +22,12 @@ class SignUpView(View):
             return user_obj.photo
 
     def get(self, request, *args, **kwargs):
-        template = self.template
+        template = self.template_name
         form = forms.SignUpForm()
         return render(request, template, locals())
 
     def post(self, request, *args, **kwargs):
-        template = self.template
+        template = self.template_name
         form = forms.SignUpForm(request.POST)
 
         if form.is_valid():
@@ -70,10 +70,10 @@ class SignUpView(View):
 
 
 class LogInView(View):
-    template = 'account/login.html'
+    template_name = 'account/login.html'
 
     def get(self, request, *args, **kwargs):
-        template = self.template
+        template = self.template_name
         form = forms.LogInForm()
         return render(request, template, locals())
 
@@ -81,14 +81,20 @@ class LogInView(View):
         username = request.POST.get('username', '')
         password = request.POST.get('password', '')
         user = authenticate(request, username=username, password=password)
-        user_type = user.user_type
-        login(request, user)
         if user is not None:
+            if user.is_active:
+                login(request, user)
+            user_type = user.user_type
             if user_type == 'buyer':
                 return redirect('buyers:buyer_home')
             elif user_type == 'supplier':
                 return redirect('suppliers:supplier_home')
-        return redirect('base:home')
+            else:
+                return redirect('base:home')
+        else:
+            login_error = "User dose not exist"
+            form = forms.LogInForm(None)
+            return render(request, self.template_name, locals())
 
 
 def userlogout(request):
