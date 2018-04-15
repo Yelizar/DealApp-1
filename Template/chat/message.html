@@ -1,19 +1,18 @@
 {% extends 'base.html' %}
 {% block titel %} Messages {% endblock %}
-{% block content %}
-{% if not chat %}
+{% load tz %}
+
+{% block left %}
+    {% if not chat %}
     <div class="panel panel-body">
         Some problems (Elik you should creat a chat)
     </div>
-{% else %}
-    <div class="col-lg-3">
-        <div class="chat-button">
-            <a href="{% url 'chat:chat' %}"><button>Return to chat</button></a>
-        </div>
-    </div>
-    {% load tz %}
+    {% endif %}
+{% endblock %}
+
+{% block middle %}
     {% if chat %}
-        <div class="col-lg-6">
+        <div class="">
             {% if chat.message_set.count == 0 %}
                 <div class="message-error">
                     <p>No messages with this user yet</p>
@@ -42,4 +41,11 @@
             </form>
         </div>
     </div>
-{% endif %}{% endblock %}
+
+{% endblock %}
+
+{% block right %}
+    <div class="chat-button">
+        <a href="{% url 'chat:chat' %}"><button>Return to chat</button></a>
+    </div>
+{% endblock %}

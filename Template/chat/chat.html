@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
-{% block titel %} About {% endblock %}
-{% block content %}
+{% block titel %} Chats {% endblock %}
+
+{% block right %}
+{% endblock %}
+
+{% block middle %}
 {% load tz %}
 {% if chats.count == 0 %}
     <div class="col-lg-3">There is no any chats</div>
 {% endif %}
-<div class="offset-lg-3 col-lg-6">
     {% for chat in chats %}
         {% if chat.message_set.count != 0 %}
             {% with last_message=chat.message_set.last %}
@@ -35,5 +38,7 @@
             {% endwith %}
         {% endif %}
     {% endfor %}
-</div>
+{% endblock %}
+
+{% block left %}
 {% endblock %}

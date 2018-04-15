@@ -30,9 +30,20 @@
     {% include 'header.html' %}
     {% include 'sidebar.html' %}
     <div class="container-fluid">
-        <div class="row">
-            {% block content %}
+        <div class="row page-box">
+            <div class="col-md-2 offset-2 left-box">
+            {% block left %}
             {% endblock %}
+            </div>
+            <div class="col-md-5 middle-box">
+            {% block middle %}
+            {% endblock %}
+            </div>
+            <div class="col-md-2 right-box">
+            {% block right %}
+            {% endblock %}
+            </div>
+
         </div>
     </div>
     {% include 'footer.html' %}

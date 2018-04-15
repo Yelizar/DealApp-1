@@ -1,16 +1,19 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block titel %} Home {% endblock %}
-{% block content %}
+
+{% block right %}
+{% endblock %}
+
+{% block middle %}
     <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
-<div id="page-content-wrapper">
-    <div class="col-lg-4 offset-lg-8">
-            <h1 class="heading-DealApp">DealApp</h1>
+    <div class="">
+        <h1 class="heading-DealApp">DealApp</h1>
     </div>
-    <div class="col-lg-8 offset-lg-8">
-        <div class="info-box">
-            <h5 class="info-DealApp">This site provides you the fastest and easiest way to find a supplier or distributor of goods</h5>
-        </div>
+    <div class="info-box">
+        <h5 class="info-DealApp">This site provides you the fastest and easiest way to find a supplier or distributor of goods</h5>
     </div>
-</div>
+{% endblock %}
+
+{% block left %}
 {% endblock %}
