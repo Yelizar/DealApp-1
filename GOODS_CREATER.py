@@ -86,6 +86,7 @@ class GoodsCreater(USER_CREATER.UserCreater):
                         'suppliers/goods/10.jpg', 'suppliers/goods/17.jpg', 'suppliers/goods/24.jpg',
                         'suppliers/goods/25.jpg', 'suppliers/goods/26.jpg',
                         )
+    root = 'suppliers/username/goods/'
 
     def __init__(self):
         super(GoodsCreater, self).__init__(0)
