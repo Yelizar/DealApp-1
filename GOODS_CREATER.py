@@ -1,6 +1,9 @@
 from suppliers.models import Goods
 from access.models import UserProfile
 from random import randrange
+from shutil import copy
+from DealApp.settings import BASE_DIR
+import os
 import USER_CREATER
 
 
@@ -88,6 +91,15 @@ class GoodsCreater(USER_CREATER.UserCreater):
                         )
     root = 'suppliers/username/goods/'
 
+    def user_goods_directory_path(self, new_object, filename):
+        try:
+            os.makedirs(BASE_DIR + '/media/suppliers/'+str(new_object.supplier.username)+'/goods/')
+        except FileExistsError:
+            """"""
+        counter = 0
+        file = copy(BASE_DIR+'/media/'+filename, BASE_DIR+'/media/suppliers/'+str(new_object.supplier.username)+'/goods/')
+        return file
+
     def __init__(self):
         super(GoodsCreater, self).__init__(0)
         counter = 300
@@ -96,7 +108,8 @@ class GoodsCreater(USER_CREATER.UserCreater):
             new_object.supplier = self.rdm_choice(self.LIST_OF_SUPPLIERS)
             new_object.name = self.rdm_choice(self.LIST_OF_GOODS_NAMES)
             new_object.price = randrange(0, 100)
-            new_object.picture = self.rdm_choice(self.LIST_OF_PICTURES)
+            path = self.user_goods_directory_path(new_object, self.rdm_choice(self.LIST_OF_PICTURES))
+            new_object.picture = path
             new_object.description = self.rdm_choice(self.LIST_OF_DESCRIPTION)
             new_object.save()
             print(new_object)
