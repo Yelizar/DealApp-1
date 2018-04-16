@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import View, UpdateView, CreateView, DeleteView
 
 
-from .models import Goods, UserProfile
+from goods.models import Goods, UserProfile
 
 
 class SupplierHomePage(View):

@@ -1,8 +1,8 @@
 from django.shortcuts import render, HttpResponse
 from django.views.generic import View
+from goods.models import Goods
+
 from access.models import UserProfile
-from suppliers.models import Goods
-from django.db.models import Q
 # Create your views here.
 
 

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block middle %}
     {% for object in all_goods %}
+        {{ object.name }}
         <img src="{{ object.picture.url }}">
     {% endfor %}
 {% endblock %}

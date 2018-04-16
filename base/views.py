@@ -3,7 +3,7 @@ from django.views.generic import View, DetailView
 
 from access.models import UserProfile
 from access.models import Clients
-from suppliers.models import Goods
+from goods.models import Goods
 
 
 class HomeView(View):

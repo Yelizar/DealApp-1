@@ -10,6 +10,10 @@ class BuyerAddressInLine(admin.TabularInline):
 
 class UserProfileAdmin(admin.ModelAdmin):
     list_display = ['id', 'username', 'user_type', 'is_active']
+    list_display_links = ['username']
+    list_filter = ['user_type']
+
+    search_fields = ['username']
     fields = ['username', 'user_type', 'is_active','is_superuser', 'email', 'photo', 'phone', ]
     inlines = [BuyerAddressInLine]
 

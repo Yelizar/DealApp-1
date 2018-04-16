@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'chat',
     'suppliers',
     'buyers',
+    'goods',
+    'search',
 ]
 
 # """I'm trying to send an mail"""

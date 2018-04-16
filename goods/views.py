@@ -1,7 +1,7 @@
-from django.shortcuts import render
 from django.views.generic import View
 from django.shortcuts import render
-from suppliers.models import Goods
+
+from .models import Goods
 # Create your views here.
 
 
