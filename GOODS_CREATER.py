@@ -1,4 +1,4 @@
-from suppliers.models import Goods
+from goods.models import Goods
 from access.models import UserProfile
 from random import randrange
 from shutil import copy
