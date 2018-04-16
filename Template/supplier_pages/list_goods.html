@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
-{% block content %}
-    <div class="col-lg-3 left-side">
-        <p>To add a new product to database press button</p>
+{% block titel %} Goods {% endblock %}
+
+{% block left %}
+    <p>To add a new product to database press button</p>
         <a href="{% url 'suppliers:crete_goods' %}" class="btn btn-primary" role="button">New Item</a>
-    </div>
-    <div class="container">
-        <div class="row">
+{% endblock %}
+
+{% block content %}
             {% for object in goods %}
                 <div class="col-lg-3 card-box">
                         <div class="card-name">
@@ -33,6 +34,7 @@
                         </div>
                 </div>
             {% endfor %}
-        </div>
-    </div>
+{% endblock %}
+
+{% block right %}
 {% endblock %}
