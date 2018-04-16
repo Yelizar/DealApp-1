@@ -96,7 +96,6 @@ class GoodsCreater(USER_CREATER.UserCreater):
             os.makedirs(BASE_DIR + '/media/suppliers/'+str(new_object.supplier.username)+'/goods/')
         except FileExistsError:
             """"""
-        counter = 0
         file = copy(BASE_DIR+'/media/'+filename, BASE_DIR+'/media/suppliers/'+str(new_object.supplier.username)+'/goods/')
         return file
 
