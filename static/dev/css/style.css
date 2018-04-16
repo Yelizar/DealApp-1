@@ -6,7 +6,7 @@
 }
 
 .page-box{
-    min-height: 805px;
+    min-width: 805px;
 }
 
 body, html {
@@ -131,35 +131,23 @@ body, html {
 }
 
 /*BLOCKS CONTAIN */
-.left-box{
+.section {
     background-color: #ffffff;
     border-radius: 5px;
     border: solid 1px #c1c1c1;
     margin-top: 20px;
-    margin-left: 5%;
-    margin-right: 1%;
     min-height: 420%;
+}
 
+.left-box{
+    margin-right: 1%;
 }
 
 .middle-box{
-    background-color: #ffffff;
-    width: 805px;
-    border-radius: 5px;
-    border: solid 1px #c1c1c1;
-    margin-top: 20px;
-    min-height: 420%;
+    margin-right: 1%;
 }
 
 .right-box{
-    background-color: #ffffff;
-    border-radius: 5px;
-    border: solid 1px #c1c1c1;
-    margin-top: 20px;
-    margin-left: 1%;
-    margin-right: 5%;
-
-    min-height: 420%;
 
 }
 /*BLOCKS CONTAIN */

@@ -7,6 +7,7 @@ from access.models import UserProfile
 def user_goods_directory_path(instance, filename):
     return 'suppliers/{0}/goods/{1}'.format(instance.supplier.username, filename)
 
+
 class Goods(models.Model):
     supplier = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     name = models.CharField(max_length=64, default=None, blank=True)
