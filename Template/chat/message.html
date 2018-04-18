@@ -30,6 +30,7 @@
         <div id="message_form">
             <form id="message-form" class="panel panel-body" method="post" >
                 {% csrf_token %}
+                {{ form.media }}
                 {% for item in form %}
                     <div class="chat-field">
                         <ui class="list-inline">

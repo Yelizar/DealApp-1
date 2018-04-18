@@ -27,6 +27,7 @@ urlpatterns = [
     path(r'', include('chat.urls')),
     path(r'search/', include('search.urls')),
     path(r'', include('goods.urls')),
+    path(r'tinymce/', include('tinymce.urls')),
     # path(r'profile/', include('access.urls')),
 
 ]

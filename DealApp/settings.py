@@ -47,6 +47,9 @@ INSTALLED_APPS = [
     'buyers',
     'goods',
     'search',
+
+    'tinymce',
+
 ]
 
 # """I'm trying to send an mail"""

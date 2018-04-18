@@ -5,7 +5,7 @@
             {% if user.is_authenticated %}
             <span><h2>Your Profile</h2></span>
             <div class="profile-img">
-            {% if uesr.photo %}
+            {% if user.photo %}
                 <img src="{{ user.photo.url }}" class="img-fluid">
             {% else %}
                 <img src="../media/access/profile_photo/avatar-admin.jpg" class="img-fluid">
