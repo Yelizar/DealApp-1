@@ -12,4 +12,5 @@ def EntireSearch(request):
     query = request.GET.get('q')
     search_users = UserProfile.objects.filter(username__icontains=query)[0:4]
     search_products = Goods.objects.filter(name__icontains=query)[0:4]
+
     return render(request, template, locals())
