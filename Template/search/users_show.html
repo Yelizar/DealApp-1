@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block middle %}
+    {% for user in all_users %}
+        <div class="all-users-line">
+            <div class="all-users-image">
+                <img src="{{ user.image.url }}">
+            </div>
+            <div class="all-users-name">
+                {{ user.username }}
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

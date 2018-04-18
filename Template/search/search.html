@@ -2,13 +2,15 @@
 {% block titel %} Search {% endblock %}
 
 {% block left %}
-    df
 {% endblock %}
 
 {% block middle %}
     {% if search_users.count > 0 and search_products.count > 0 %}
     <div class="search-users">
-        <h3>People</h3>
+        <div class="search-section-name">
+            <h3>People</h3>
+            <div class="search-more"><a href="{% url 'search:all-users' %}">More</a></div>
+        </div>
         <div class="row">
             {% for user in search_users %}
                 <div class="col-md-3 search-item-block">
@@ -22,7 +24,10 @@
     </div>
     <hr>
     <div class="search-products">
-        <h3>Products</h3>
+        <div class="search-section-name">
+            <h3>Products</h3>
+            <div class="search-more"><a href="{% url 'all_goods:all_goods' %}">More</a></div>
+        </div>
         <div class="row">
             {% for product in search_products %}
                 <div class="col-md-3 search-item-block">
