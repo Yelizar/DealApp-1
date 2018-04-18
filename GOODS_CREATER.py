@@ -96,7 +96,8 @@ class GoodsCreater(USER_CREATER.UserCreater):
         except FileExistsError:
             pass
         copy(BASE_DIR+'/media/'+filename, BASE_DIR+'/media/suppliers/'+str(new_object.supplier.username)+'/goods/')
-        data = 'suppliers/'+str(new_object.supplier.username)+'/goods/'+filename
+        x = filename[16:]
+        data = 'suppliers/'+str(new_object.supplier.username)+'/goods/' + x
         return data
 
     def __init__(self):
@@ -108,6 +109,7 @@ class GoodsCreater(USER_CREATER.UserCreater):
             new_object.name = self.rdm_choice(self.LIST_OF_GOODS_NAMES)
             new_object.price = randrange(0, 100)
             path = self.user_goods_directory_path(new_object, self.rdm_choice(self.LIST_OF_PICTURES))
+            print (path)
             new_object.picture = path
             new_object.description = self.rdm_choice(self.LIST_OF_DESCRIPTION)
             new_object.save()
