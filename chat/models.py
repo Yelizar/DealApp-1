@@ -1,4 +1,5 @@
 from django.utils import timezone
+from tinymce.models import HTMLField
 
 
 from access.models import *
@@ -15,7 +16,7 @@ class Session(models.Model):
 class Message(models.Model):
     session = models.ForeignKey(Session, on_delete=models.CASCADE)
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
-    message = models.TextField('Enter your message')
+    message = HTMLField()
 
     created = models.DateTimeField(default=timezone.now)
     is_readed = models.BooleanField(default=False)

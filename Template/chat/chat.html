@@ -22,13 +22,13 @@
                             {% if user != last_message.user %}
                                 <a class="" href="{{ chat.get_absolute_url }}">
                                 <div class="chat-user-info-small">
-                                    <div class="chat-set{% if not last_message.is_readed %}unreaded{% endif %}"><img class="" src="{{ companion.photo.url }}">{{ last_message.message }}</div>
+                                    <div class="chat-set{% if not last_message.is_readed %}unreaded{% endif %}"><img class="" src="{{ companion.photo.url }}">{{ last_message.message|safe }}</div>
                                 </div>
                                 </a>
                             {% else %}
                                 <a class="" href="{{ chat.get_absolute_url }}">
                                 <div class="chat-user-info-small">
-                                    <div class="chat-set{% if not last_message.is_readed %}unreaded{% endif %}"><img class="" src="{{ user.photo.url }}">{{ last_message.message }}</div>
+                                    <div class="chat-set{% if not last_message.is_readed %}unreaded{% endif %}"><img class="" src="{{ user.photo.url }}">{{ last_message.message|safe }}</div>
                                 </a>
                                 </div>
                             {% endif %}

@@ -12,21 +12,6 @@
 
 {% block middle %}
     {% if chat %}
-        <div class="">
-            {% if chat.message_set.count == 0 %}
-                <div class="message-error">
-                    <p>No messages with this user yet</p>
-                </div>
-            {% else %}
-            <div id="messages" class="panel">
-                <div id="chat-list">
-                    {% for message in chat.message_set.all %}
-                            {% include 'chat/text.html' with message_item=message %}
-                    {% endfor %}
-                </div>
-            </div>
-        {% endif %}
-        {% endif %}
         <div id="message_form">
             <form id="message-form" class="panel panel-body" method="post" >
                 {% csrf_token %}
@@ -41,6 +26,21 @@
                 {% endfor %}
             </form>
         </div>
+        <div class="">
+            {% if chat.message_set.count == 0 %}
+                <div class="message-error">
+                    <p>No messages with this user yet</p>
+                </div>
+            {% else %}
+            <div id="messages" class="panel">
+                <div id="chat-list">
+                    {% for message in chat.message_set.all %}
+                            {% include 'chat/text.html' with message_item=messag %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+        {% endif %}
     </div>
 
 {% endblock %}
