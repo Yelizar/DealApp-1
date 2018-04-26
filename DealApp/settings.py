@@ -94,6 +94,7 @@ TEMPLATES = [
             ],
             'builtins': [
                 'templatetags.get_companion',
+                'templatetags.get_chats',
                 'templatetags.message'
             ]
         },

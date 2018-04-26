@@ -11,7 +11,7 @@ admin.site.register(Session, SessionAdmin)
 
 
 class MessageAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in Session._meta.fields]
+    list_display = [field.name for field in Message._meta.fields]
 
 
 admin.site.register(Message, MessageAdmin)

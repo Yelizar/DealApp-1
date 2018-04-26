@@ -6,7 +6,7 @@ register = template.Library()
 
 @register.simple_tag
 def message(request, id):
-    messages = Message.objects.filter(session__members=id).exclude(user=id).filter(is_readed=False)
+    messages = Message.objects.filter(session__members=id).exclude(user=id).filter(is_read=False)
     message = len(messages)
     if request.is_ajax():
         return HttpResponse(message, content_type='application/json')

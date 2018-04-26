@@ -4,8 +4,7 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.contrib.auth import authenticate, login, logout
 
-from DealApp.settings import BASE_DIR
-import os
+
 from . import forms
 from .models import UserProfile, user_photo_directory_path
 

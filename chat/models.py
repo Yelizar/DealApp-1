@@ -7,6 +7,7 @@ from access.models import *
 
 class Session(models.Model):
     members = models.ManyToManyField(UserProfile)
+    subject = models.CharField(max_length=128, default=None, blank=True, null=True)
 
     @models.permalink
     def get_absolute_url(self):
@@ -19,7 +20,7 @@ class Message(models.Model):
     message = HTMLField()
 
     created = models.DateTimeField(default=timezone.now)
-    is_readed = models.BooleanField(default=False)
+    is_read = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['created']

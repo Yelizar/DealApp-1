@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect, reverse, render_to_response, HttpResponse
 from django.views.generic import View
 from django.db.models import Count
+from django.core.mail import send_mail
 
+from DealApp import settings
 from .forms import *
-from .models import Session
+from .models import Session, Message
 
 
 class ChatView(View):
@@ -12,7 +14,7 @@ class ChatView(View):
     def get(self, request):
         template = self.template_name
         chats = Session.objects.filter(members__in=[request.user.id])
-        messages = Message.objects.filter(session__members=request.user.id).exclude(user=request.user.id).filter(is_readed=False)
+        messages = Message.objects.filter(session__members=request.user.id).exclude(user=request.user.id).filter(is_read=False)
         message = len(messages)
         if request.is_ajax():
             try:
@@ -32,7 +34,7 @@ class MessageView(View):
         try:
             chat = Session.objects.get(id=chat_id)
             if request.user in chat.members.all():
-                chat.message_set.filter(is_readed=False).exclude(user=request.user).update(is_readed=True)
+                chat.message_set.filter(is_read=False).exclude(user=request.user).update(is_read=True)
             else:
                 chat = None
         except Session.DoesNotExist:
@@ -47,6 +49,15 @@ class MessageView(View):
             message.session_id = chat_id
             message.user = request.user
             message.save()
+
+            """Email data"""
+            subject = form.cleaned_data['subject']
+            content = form.cleaned_data['message']
+            chat = Session.objects.filter(members__in=[request.user.id])
+            print(chat)
+            # send_mail(subject=subject, from_email=settings.EMAIL_HOST_USER, recipient_list=[user_email],
+            #           fail_silently=False, message=content)
+
         return redirect(reverse('chat:message', kwargs={'chat_id': chat_id}))
 
 
