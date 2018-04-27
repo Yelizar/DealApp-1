@@ -51,7 +51,6 @@ class MessageView(View):
             message.save()
 
             """Email data"""
-            subject = form.cleaned_data['subject']
             content = form.cleaned_data['message']
             chat = Session.objects.filter(members__in=[request.user.id])
             print(chat)
