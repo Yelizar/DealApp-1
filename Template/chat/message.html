@@ -26,10 +26,10 @@
                     <div class="chat-field">
                         <ui class="list-inline">
                             <li><div class="textarea">{{form.message}}</div></li>
-                            <hr>
                         </ui>
                     </div>
                     <button type="submit" class="btn btn-default btn-sm">Send</button>
+                <hr>
             </form>
         </div>
         <div class="">
@@ -40,8 +40,9 @@
             {% else %}
             <div id="messages" class="panel">
                 <div id="chat-list">
-                    {% for message in chat.message_set.all %}
-                            {% include 'chat/text.html' with message_item=messag %}
+                    {% for message in chat.message_set.all.reverse %}
+                            {% include 'chat/text.html' with message_item=message %}
+                        <hr>
                     {% endfor %}
                 </div>
             </div>

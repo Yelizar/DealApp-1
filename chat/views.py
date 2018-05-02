@@ -20,6 +20,8 @@ class ChatView(View):
             try:
                 if request.GET['data'] == 'get_page':
                     return render_to_response(template, locals())
+                elif request.GET['data'] == 'get_message':
+                    return message
             except KeyError:
                 dat = message
                 return HttpResponse(dat)
@@ -40,6 +42,14 @@ class MessageView(View):
         except Session.DoesNotExist:
             chat = None
 
+        if request.is_ajax():
+            try:
+                if request.GET['data'] == 'get_message':
+                    last_message = chat.message_set.last()
+                    print(last_message)
+                    return HttpResponse(last_message)
+            except KeyError:
+                return None
         return render(request, self.template_name, locals())
 
     def post(self, request, chat_id):
