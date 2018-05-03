@@ -60,7 +60,7 @@ class MessageView(View):
             message.user = request.user
             message.save()
 
-            """Email data"""
+
             content = form.cleaned_data['message']
             chat = Session.objects.filter(members__in=[request.user.id])
             # send_mail(subject=subject, from_email=settings.EMAIL_HOST_USER, recipient_list=[user_email],
