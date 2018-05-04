@@ -6,6 +6,7 @@ $(document).ready(function() {
                     $('#mes').replaceWith("<p class='mes' id='mes'>"+dat+"</p>");
         }
         });
-    }, 5000);
-});
+    }, 300);
 
+
+});
