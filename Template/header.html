@@ -1,0 +1,21 @@
+<nav class="navbar-main">
+    <div class="icon-menu">
+        <span class="divide"></span>
+        <span class="divide"></span>
+        <span class="divide"></span>
+    </div>
+    <div class="navbar-logo">
+        <h1><a href="/">DealApp</a></h1>
+    </div>
+    <div class="header-search">
+        <form class="search-form" id="search" method='GET' action="{% url 'search:search' %}">
+            {% csrf_token %}
+            <input type="text" name="q" value="{{ request.GET.q }}" placeholder="Search">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+    <div><a href="http://127.0.0.1:8000/admin">admin panel</a></div>
+</nav>
+
+
+

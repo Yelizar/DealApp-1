@@ -1,0 +1,17 @@
+{% url 'base:home' message_item.user.username as the_user_url%}
+{% load tz %}
+<div class="chat-line">
+    <div class="chat-user-info">
+        <a href="/"><img src="{{ message_item.user.photo.url }}"></a>
+        <span class="chat-username">
+            <a href="{{ the_user_url }}">{{ message_item.user.username }}</a>
+        </span>
+        <span class="chat-date">
+            {{ message_item.created|utc }}
+        </span>
+    </div>
+    <div class="chat-message">
+        <p class="chat-set{% if not message_item.is_read %}unreaded{% endif %}">{{ message_item.message|safe }}</p>
+    </div>
+
+</div>

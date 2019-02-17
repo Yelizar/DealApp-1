@@ -21,7 +21,14 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(r'', include('base.urls')),
-    path(r'profile/', include('access.urls')),
+    path(r'', include('access.urls')),
+    path(r'', include('suppliers.urls')),
+    path(r'', include('buyers.urls')),
+    path(r'', include('chat.urls')),
+    path(r'search/', include('search.urls')),
+    path(r'', include('goods.urls')),
+    path(r'tinymce/', include('tinymce.urls')),
+    # path(r'profile/', include('access.urls')),
 
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS)

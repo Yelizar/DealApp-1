@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block titel %} Goods {% endblock %}
+
+{% block left %}
+{% endblock %}
+
+{% block middle %}
+    <div class="">
+        <p>Return to List of your Goods</p>
+        <a href="{% url 'suppliers:list_goods' %}" class="btn btn-primary" role="button">Return</a>
+    </div>
+    <div class="col-lg-3">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Save" />
+        </form>
+    </div>
+
+{% endblock %}
+
+{% block right %}
+{% endblock %}

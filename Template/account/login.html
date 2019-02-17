@@ -1,0 +1,26 @@
+{% extends "base.html"%}
+{% block titel %} Log in {% endblock %}
+
+{% block left %}
+{% endblock %}
+
+{% block middle %}
+    <div class="">
+
+        <ul class="nav nav-tabs">
+            <li role="presentation">Log In</li>
+            <li role="presentation"><a href="{% url 'access:signup' %}">Sign Up</a></li>
+        </ul>
+        <div class="in_and_up_form">
+            <form class="login" method="POST" action="{% url 'access:login' %}">
+              <span class="text-danger small"> {{ login_error }} </span>
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button class="primaryAction" type="submit">Sign In</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block right %}
+{% endblock %}

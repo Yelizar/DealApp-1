@@ -3,22 +3,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    {% block titel %}<title>Title</title>{% endblock %}
+    <title>{% block titel %}Title{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/auth_forms.css' %}">
+    <link rel="stylesheet" href="{% static 'css/buyer_home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/chat.css' %}">
+    <link rel="stylesheet" href="{% static 'css/suppliers_pages.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-grid.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-reboot.css' %}">
+    <link rel="stylesheet" href="{% static 'css/search/main_search.css' %}">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="{% static 'js/js.js' %}"></script>
+    <script src="{% static 'js/chat.js' %}"></script>
+    <script src="{% static 'js/sidebar.js' %}"></script>
+    <script src="{% static 'js/search.js' %}"></script>
+     <!-- Latest compiled and minified CSS -->
 
 <body>
 
-    <div id="wrapper">
     {% include 'header.html' %}
-    {% block content %}
-    {% endblock %}
+    {% include 'sidebar.html' %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 offset-1 section left-box">
+            {% block left %}
+            {% endblock %}
+            </div>
+            <div class="col-md-5 section middle-box">
+            {% block middle %}
+            {% endblock %}
+            </div>
+            <div class="col-md-2 section right-box">
+            {% block right %}
+            {% endblock %}
+            </div>
+        </div>
     </div>
     {% include 'footer.html' %}
 
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{% static 'bootstrap-3.3.7-dist/js/bootstrap.min.js'%}"></script>
-    <script defer src="{% static 'Font awe/fontawesome-free-5.0.2/svg-with-js/js/fontawesome-all.min.js' %}"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>
