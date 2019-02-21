@@ -1,0 +1,32 @@
+{% load static %}
+<div class="landing-header">
+    <div class="landing-logo">
+        <a href="/">
+            <img id="logo" src="{% static 'images/landing/2_Flat_logo_on_transparent_302x65.png' %}">
+        </a>
+    </div>
+    <div class="landing-menu">
+        <ul>
+            <li>Menu</li>
+            <li>About</li>
+            <li class="premium">Premium</li>
+        </ul>
+    </div>
+    <div class="header-reg">
+        <ul>
+            <li id="login-sign">Log In</li>
+            <li>/</li>
+            <li><a href="{% url 'access:signup' %}">Sign Up</a></li>
+        </ul>
+        <div class="arrow-up"></div>
+    </div>
+    <div class="header-login-field">
+        <form class="login" method="POST" action="{% url 'access:login' %}">
+{#            <span class="text-danger small"> {{ login_error }} </span>#}
+            {% csrf_token %}
+            <input class="login-field" type="text" placeholder="Username" name="username">
+            <input class="login-field" type="password" placeholder="Password" name="password">
+            <button href="{% url 'access:login' %}" class="primaryAction" type="submit">Sign In</button>
+        </form>
+    </div>
+</div>
