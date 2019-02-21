@@ -1,77 +1,72 @@
 {% extends 'base.html' %}
 {% block titel %} Search {% endblock %}
 
-{% block left %}
-{% endblock %}
-
-{% block middle %}
-    {% if search_users.count > 0 and search_products.count > 0 %}
-    <div class="search-users">
-        <div class="search-section-name">
-            <h3>People</h3>
-            <div class="search-more"><a href="{% url 'search:all-users' %}">More</a></div>
-        </div>
+{% block content %}
+    <div class="container-fluid">
         <div class="row">
-            {% for user in search_users %}
-                <div class="col-md-3 search-item-block">
-                    <div class="search-item-img">
-                        <a href="#"><img src="{{ user.photo.url }}" class="img-fluid"></a>
-                    </div>
-                    <a href="#">{{ user.username }}</a>
-                </div>
-            {% endfor %}
+            {% if search_users.count > 0 and search_products.count > 0 %}
+            <div class="col-lg-5 offset-1 padding-0">
+                 <section class="search-users-block border-left-1px">
+                    {% for user in search_users %}
+                        <div class="search-item-block">
+                            <div class="search-item-img">
+                                <a href="#"><img src="{{ user.photo.url }}" class="img-fluid"></a>
+                            </div>
+                            <span class="search-item-name">
+                                <a href="#">{{ user.username }}</a>
+                            </span>
+                            <button class="search-add-friend">Add Friend</button>
+                        </div>
+                    {% endfor %}
+                </section>
+            </div>
+            <div class="col-lg-5 padding-0">
+                <section class="search-users-block border-right-1px">
+                    {% for product in search_products %}
+                        <div class="search-item-block">
+                            <div class="search-item-img">
+                                <a href="#"><img src="{{ product.picture.url }}" class="img-fluid"></a>
+                            </div>
+                            <span class="search-item-name">
+                                <a href="#">{{ product.name }}</a>
+                            </span>]
+                        </div>
+                    {% endfor %}
+                </section>
+            </div>
+
+{#    {% elif search_users.count > 0 %}#}
+{#        <div class="search-users">#}
+{#            <h3>People</h3>#}
+{#            <div class="row">#}
+{#                {% for user in search_users %}#}
+{#                    <div class="col-md-3 search-item-block">#}
+{#                        <div class="search-item-img">#}
+{#                            <a href="#"><img src="{{ user.photo.url }}" class="img-fluid"></a>#}
+{#                        </div>#}
+{#                        <a href="#">{{ user.username }}</a>#}
+{#                    </div>#}
+{#                {% endfor %}#}
+{#            </div>#}
+{#        </div>#}
+{#    {% elif search_products.count > 0 %}#}
+{#        <div class="search-products">#}
+{#            <h3>Products</h3>#}
+{#            <div class="row">#}
+{#                {% for product in search_products %}#}
+{#                    <div class="col-md-3 search-item-block">#}
+{#                        <div class="search-item-img">#}
+{#                            <a href="#"><img src="{{ product.picture.url }}" class="img-fluid"></a>#}
+{#                        </div>#}
+{#                        <a href="#">{{ product.name }}</a><br>#}
+{#                        <span class="product-rating">Rating: {{ product.rating }}</span>#}
+{#                    </div>#}
+{#                {% endfor %}#}
+{#            </div>#}
+{#        </div>#}
+            {% else %}
+                <h1>We couldn't find anything with name "{{ query }}"</h1>
+            {% endif %}
         </div>
     </div>
-    <hr>
-    <div class="search-products">
-        <div class="search-section-name">
-            <h3>Products</h3>
-            <div class="search-more"><a href="{% url 'all_goods:all_goods' %}">More</a></div>
-        </div>
-        <div class="row">
-            {% for product in search_products %}
-                <div class="col-md-3 search-item-block">
-                    <div class="search-item-img">
-                        <a href="#"><img src="{{ product.picture.url }}" class="img-fluid"></a>
-                    </div>
-                    <a href="#">{{ product.name }}</a>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-    {% elif search_users.count > 0 %}
-        <div class="search-users">
-            <h3>People</h3>
-            <div class="row">
-                {% for user in search_users %}
-                    <div class="col-md-3 search-item-block">
-                        <div class="search-item-img">
-                            <a href="#"><img src="{{ user.photo.url }}" class="img-fluid"></a>
-                        </div>
-                        <a href="#">{{ user.username }}</a>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-    {% elif search_products.count > 0 %}
-        <div class="search-products">
-            <h3>Products</h3>
-            <div class="row">
-                {% for product in search_products %}
-                    <div class="col-md-3 search-item-block">
-                        <div class="search-item-img">
-                            <a href="#"><img src="{{ product.picture.url }}" class="img-fluid"></a>
-                        </div>
-                        <a href="#">{{ product.name }}</a><br>
-                        <span class="product-rating">Rating: {{ product.rating }}</span>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-    {% else %}
-        <h1>We couldn't find anything with name "{{ query }}"</h1>
-    {% endif %}
-{% endblock %}
-
-{% block right %}
 {% endblock %}

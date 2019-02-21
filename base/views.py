@@ -7,10 +7,13 @@ from goods.models import Goods
 
 
 class HomeView(View):
-    template_name = 'base/home.html'
+    template_name = 'base/landing_home.html'
 
     def get(self, request):
-        return render(request, self.template_name, locals())
+        if request.user.is_authenticated:
+            return render(request, 'base.html', locals())
+        else:
+            return render(request, self.template_name, locals())
 
 
 class AboutUsView(View):

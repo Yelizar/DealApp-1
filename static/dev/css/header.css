@@ -1,22 +1,117 @@
-.header-search {
-    width: 80%;
-    float: right;
+/*General header setting on landing page*/
+.landing-header {
+    width: 100%;
+    background-color: #212a38;
     color: white;
-    padding-top: 10px;
-}
-.search-form input{
-    width: 50%;
-    border: white solid;
-}
-.search-form button {
-    margin:0;
-    border: white solid;
-    background: white;
+    border: none;
+    border-bottom: 1px solid #3c3c3c;
 }
 
+.landing-header a, a:hover{
+    color: white;
+    text-decoration: none;
+}
 
-@media only all and (max-width: 768px) {
-    .header-search {
-        display: none;
-    }
+.landing-header a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+/*Menu on landing page*/
+.landing-menu {
+
+    display: inline-block;
+}
+
+.landing-menu ul {
+    display: flex;
+    margin: 0 0 0 10px ;
+    padding: 20px 0;
+
+
+}
+
+.landing-menu li {
+    margin: 5px 15px 5px 0;
+    list-style: none;
+    padding: 10px;
+}
+.premium {
+    border: solid 1px #ffa554;
+    padding: 10px 20px;
+}
+
+.landing-logo {
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+}
+
+.landing-logo h2 {
+    font-size: 20px;
+
+}
+/*Registration fields on landing page*/
+.header-reg {
+    float: right;
+}
+
+.header-reg ul {
+    padding: auto;
+    margin: 0 50px;
+    display: flex;
+}
+
+.header-reg li {
+    list-style: none;
+    padding: 30px 10px;
+    margin-top: 5px;
+}
+
+/*3 line in left corner to open side bar*/
+.landing-open-sidebar {
+    width: 40px;
+    height: 40px;
+    margin: 25px 0 0 20px;
+    float: left;
+    cursor: pointer;
+
+}
+
+.divider {
+    display: block;
+    background-color: white;
+    width: 100%;
+    height: 1px;
+    margin-top: 10px;
+}
+/*search field on header*/
+.header-search {
+    display: inline-block;
+    float: right;
+    height: 100%;
+    padding: 30px;
+    margin-right: 13.5%;
+}
+
+.header-search input, input:focus {
+    outline: none;
+    border-radius: 15px;
+    padding-left: 10px;
+    border: solid 2px white;
+}
+
+.search-expand {
+    width: 300px;
+}
+
+.header-search button:focus {
+    cursor: pointer;
+    outline: none;
+}
+
+.header-search button {
+    background: none;
+    border: none;
+    color: white;
 }
