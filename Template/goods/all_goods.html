@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block middle %}
+{% block content %}
     {% for object in all_goods %}
         {{ object.name }}
         <img src="{{ object.picture.url }}">

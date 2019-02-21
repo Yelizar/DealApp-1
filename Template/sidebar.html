@@ -1,42 +1,42 @@
 {% load  static %}
-<div class="container">
-    <div class="sidebar">
-        <div class="inner-sidebar">
-            {% if user.is_authenticated %}
-            <span><h2>Your Profile</h2></span>
-            <div class="profile-img">
-            {% if user.photo %}
-                <img src="{{ user.photo.url }}" class="img-fluid">
-            {% else %}
-                <img src="../media/access/profile_photo/avatar-admin.jpg" class="img-fluid">
-            {% endif %}
-            </div>
-            <div class="profile-username"><i class="fas fa-user user-icon"></i><span>{{ user.username }}</span></div>
-            <hr>
-            <div class="sidebar-options">
-                <ul>{% message request user.id as message%}
-                    <li><a href="{% url 'access:logout' %}">Logout</a></li>
-                    <li class="string-mes" id="string-mes"><a href="{% url 'chat:chat' %}"><p class="mes" id="mes" >{{ message }}</p> Messages</a></li>
-                    <li id="string-clients" ><a href="{% url 'base:clients'%}">My clients</a></li>
-                    {% if request.user.user_type == 'supplier' %}
-                        <hr>
-                        <li><a href="#">Order history</a></li>
-                        <li  id="string-products" ><a href="{% url 'suppliers:list_goods' %}">My products</a></li>
-                    {% elif request.user.user_type == 'buyer' %}
-                        <hr>
-                        <li><a href="#">Order history</a></li>
-                         <li><a href="#">My stores</a></li>
-                    {% else %}
-                    {% endif %}
-                    <hr>
-                    <li  id="string-about"><a href="{% url 'base:about' %}">About</a></li>
-                    <li><a href="{% url 'base:settings' request.user.id %}">Settings</a></li>
-                </ul>
-            </div>
-                {% else %}
-                <button class="btn sidebar-login-btn"><a href="{% url 'access:login' %}">Login</a></button>
-                <button class="btn sidebar-signup-btn"><a href="{% url 'access:signup' %}">Sign Up</a></button>
-            {% endif %}
+<div class="sidebar">
+    <div class="inner-sidebar">
+        {% if user.is_authenticated %}
+        <span><h2>Your Profile</h2></span>
+        <div class="profile-img">
+        {% if user.photo %}
+            <img src="{{ user.photo.url }}" class="img-fluid">
+        {% else %}
+            <img src="../media/access/profile_photo/avatar-admin.jpg" class="img-fluid">
+        {% endif %}
         </div>
+        <div class="profile-username"><i class="fas fa-user user-icon"></i><span>{{ user.username }}</span></div>
+        <hr>
+        <div class="sidebar-options">
+            <ul>{% message request user.id as message%}
+                <li><a href="{% url 'access:logout' %}">Logout</a></li>
+                <li class="string-mes" id="string-mes"><a href="{% url 'chat:chat' %}"><p class="mes" id="mes" >{{ message }}</p> Messages</a></li>
+                <li id="string-clients" ><a href="{% url 'base:clients'%}">My clients</a></li>
+                {% if request.user.user_type == 'supplier' %}
+                    <hr>
+                    <li><a href="#">Order history</a></li>
+                    <li  id="string-products" ><a href="{% url 'suppliers:list_goods' %}">My products</a></li>
+                {% elif request.user.user_type == 'buyer' %}
+                    <hr>
+                    <li><a href="#">Order history</a></li>
+                     <li><a href="#">My stores</a></li>
+                {% else %}
+                {% endif %}
+                <hr>
+                <li  id="string-about"><a href="{% url 'base:about' %}">About</a></li>
+                <li><a href="{% url 'base:settings' request.user.id %}">Settings</a></li>
+            </ul>
+        </div>
+            {% else %}
+            <div class="btn-container">
+                <button class="sidebar-login-btn"><a href="{% url 'access:login' %}">Login</a></button>
+                <button class="sidebar-login-btn"><a href="{% url 'access:signup' %}">Sign Up</a></button>
+            </div>
+        {% endif %}
     </div>
 </div>

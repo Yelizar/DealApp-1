@@ -3,7 +3,6 @@ from django import forms
 from .models import UserProfile
 
 
-
 class SignUpForm(forms.ModelForm):
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
@@ -28,14 +27,14 @@ class SignUpForm(forms.ModelForm):
         return user
 
 
-class LogInForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput, label='Password')
-
-    class Meta:
-        model = UserProfile
-        fields = ['username']
-
-    def clean_password(self):
-        password = self.cleaned_data.get('password')
-        return password
+# class LogInForm(forms.ModelForm):
+#     password = forms.CharField(widget=forms.PasswordInput, label='Password')
+#
+#     class Meta:
+#         model = UserProfile
+#         fields = ['username']
+#
+#     def clean_password(self):
+#         password = self.cleaned_data.get('password')
+#         return password
 

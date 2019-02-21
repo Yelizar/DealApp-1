@@ -1,27 +1,23 @@
 .search-item-img {
-    width: 70px;
-    height: auto;
-    padding: auto;
-    margin: auto;
+    padding: 10px 0 0 10px;
+}
+
+.search-item-img img {
+    width: 50px;
+    border-radius: 50%;
+    height: 50px;
 }
 
 .search-item-block {
-    border-right: solid black 1px;
-    text-align: center;
+    margin: 20px 20px;
+    min-height: 110px;
+    background: #222b39;
 }
 
 .product-rating {
     color: #201290;
 }
 
-.all-search {
-    background-color: #ffffff;
-    width: 805px;
-    border-radius: 5px;
-    border: solid 1px #c1c1c1;
-    margin-top: 20px;
-    min-height: 420%;
-}
 .search-section-name {
     width: 100%;
     height: 33px;
@@ -39,6 +35,32 @@
     width: 30px;
     height: 20px;
     text-align: center;
+}
+
+.search-users-block {
+    min-height: 500px;
+
+}
+
+.search-add-friend {
+    background: #222b39;
+    float: right;
+    color: white;
+    text-align: center;
+    padding: 5px 10px;
+    position: relative;
+    bottom: 45px;
+    left: -10px;
+    cursor: pointer;
+    border: 1px white solid;
+}
+
+.search-item-name, .search-item-name a, .search-item-name a:hover {
+    position: relative;
+    top: -25px;
+    right: -35px;
+    color: white;
+
 }
 
 /*SEARCH SECTION FOR VIEWING ALL USERS*/

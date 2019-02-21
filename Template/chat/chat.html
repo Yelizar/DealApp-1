@@ -1,10 +1,7 @@
 {% extends 'base.html' %}
 {% block titel %} Chats {% endblock %}
 
-{% block right %}
-{% endblock %}
-
-{% block middle %}
+{% block content %}
 {% load tz %}
 {% if chats.count == 0 %}
     <div class="col-lg-3">There is no any chats</div>
@@ -38,7 +35,4 @@
             {% endwith %}
         {% endif %}
     {% endfor %}
-{% endblock %}
-
-{% block left %}
 {% endblock %}

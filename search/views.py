@@ -10,8 +10,8 @@ def EntireSearch(request):
     template = 'search/search.html'
 
     query = request.GET.get('q')
-    search_users = UserProfile.objects.filter(username__icontains=query)[0:4]
-    search_products = Goods.objects.filter(name__icontains=query)[0:4]
+    search_users = UserProfile.objects.filter(username__icontains=query)[0:6]
+    search_products = Goods.objects.filter(name__icontains=query)[0:6]
 
     return render(request, template, locals())
 
