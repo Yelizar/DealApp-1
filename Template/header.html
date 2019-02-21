@@ -1,21 +1,30 @@
-<nav class="navbar-main">
-    <div class="icon-menu">
-        <span class="divide"></span>
-        <span class="divide"></span>
-        <span class="divide"></span>
+{% load static %}
+<div class="landing-header">
+    <div class="landing-open-sidebar">
+        <span class="divider"></span>
+        <span class="divider"></span>
+        <span class="divider"></span>
     </div>
-    <div class="navbar-logo">
-        <h1><a href="/">DealApp</a></h1>
+    <div class="landing-menu">
+        <ul>
+            <li>Menu</li>
+            <li>About</li>
+            <li class="premium">Premium</li>
+        </ul>
     </div>
-    <div class="header-search">
+    <div class="landing-logo">
+        <a href="/">
+            <img id="logo" src="{% static 'images/landing/2_Flat_logo_on_transparent_302x65.png' %}">
+        </a>
+    </div>
+     <div class="header-search">
         <form class="search-form" id="search" method='GET' action="{% url 'search:search' %}">
             {% csrf_token %}
-            <input type="text" name="q" value="{{ request.GET.q }}" placeholder="Search">
+            <input class="header-search-field" type="text" name="q" value="{{ request.GET.q }}" placeholder="Search">
             <button type="submit"><i class="fas fa-search"></i></button>
         </form>
     </div>
-    <div><a href="http://127.0.0.1:8000/admin">admin panel</a></div>
-</nav>
+</div>
 
 
 

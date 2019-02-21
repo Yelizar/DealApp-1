@@ -55,12 +55,11 @@ class SignUpView(View):
 
 
 class LogInView(View):
-    template_name = 'account/login.html'
+    template_name = 'base/landing_home.html'
 
-    def get(self, request, *args, **kwargs):
-        template = self.template_name
-        form = forms.LogInForm()
-        return render(request, template, locals())
+    # def get(self, request, *args, **kwargs):
+    #     template = self.template_name
+    #     return render(request, template, locals())
 
     def post(self, request, *args, **kwargs):
         username = request.POST.get('username', '')
@@ -78,7 +77,6 @@ class LogInView(View):
                 return redirect('base:home')
         else:
             login_error = "User dose not exist"
-            form = forms.LogInForm(None)
             return render(request, self.template_name, locals())
 
 

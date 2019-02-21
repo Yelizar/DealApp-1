@@ -2,36 +2,21 @@
 {% block titel %} Messages {% endblock %}
 {% load tz %}
 
-{% block left %}
-    Companion {% get_companion user chat as companion%}
-    <div class="chat-user-info chats">
-        <h6 class="" >{{ companion.username }}</h6>
-        <h6 class="" >{{ companion.email }}</h6>
-        <img class="" src="{{ companion.photo.url }}">
-    </div>
+{#{% block left %}#}
+{#    {% if not chat %}#}
+{#    <div class="panel panel-body">#}
+{#        Some problems (Elik you should creat a chat)#}
+{#    </div>#}
+{#    {% endif %}#}
+{#{% endblock %}#}
 
+{% block content %}
     {% if not chat %}
     <div class="panel panel-body">
-        Some problems (Elik you should create a chat)
+        Some problems (Elik you should creat a chat)
     </div>
     {% endif %}
-{% endblock %}
-
-{% block middle %}
     {% if chat %}
-        <div id="message_form">
-            <form id="message-form" class="panel panel-body" method="post" >
-                {% csrf_token %}
-                {{ form.media }}
-                    <div class="chat-field">
-                        <ui class="list-inline">
-                            <li><div class="textarea">{{form.message}}</div></li>
-                        </ui>
-                    </div>
-                    <button type="submit" class="btn btn-default btn-sm">Send</button>
-                <hr>
-            </form>
-        </div>
         <div class="">
             {% if chat.message_set.count == 0 %}
                 <div class="message-error">
@@ -40,20 +25,37 @@
             {% else %}
             <div id="messages" class="panel">
                 <div id="chat-list">
-                    {% for message in chat.message_set.all.reverse %}
+                    {% for message in chat.message_set.all %}
                             {% include 'chat/text.html' with message_item=message %}
-                        <hr>
                     {% endfor %}
                 </div>
             </div>
         {% endif %}
         {% endif %}
+        <div id="message_form">
+            <form id="message-form" class="panel panel-body" method="post" >
+                {% csrf_token %}
+                {{ form.media }}
+                {% for item in form %}
+                    <div class="chat-field">
+                        <ui class="list-inline">
+                            <li><div class="textarea">{{ item }}</div></li>
+                            <li><button type="submit" class="btn btn-default btn-sm">Send</button></li>
+                        </ui>
+                    </div>
+                {% endfor %}
+            </form>
+        </div>
     </div>
 
-{% endblock %}
-
-{% block right %}
     <div class="chat-button">
         <a href="{% url 'chat:chat' %}"><button>Return to chat</button></a>
     </div>
+
 {% endblock %}
+
+{#{% block right %}#}
+{#    <div class="chat-button">#}
+{#        <a href="{% url 'chat:chat' %}"><button>Return to chat</button></a>#}
+{#    </div>#}
+{#{% endblock %}#}
