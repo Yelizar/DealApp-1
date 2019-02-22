@@ -4,6 +4,7 @@ from django.http import HttpResponse
 
 register = template.Library()
 
+
 @register.simple_tag
 def message(request, id):
     messages = Message.objects.filter(session__members=id).exclude(user=id).filter(is_read=False)
