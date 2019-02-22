@@ -32,12 +32,13 @@
     padding: 20px;
 }
 
+
 #login-sign {
     cursor: pointer;
 }
 
 .login input:focus {
-    border-radius: 0;
+    border-radius: 1px;
 }
 
 .login-field {

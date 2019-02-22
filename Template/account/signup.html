@@ -1,31 +1,14 @@
-{% extends "base.html" %}
+{% extends "anonymouse_base.html" %}
 {% block titel %} Sign Up {% endblock %}
 
-{% block left %}
-
-{% endblock %}
-
-{% block middle %}
-
-    <div class="">
-        <div class="login-form">
-            <ul class="nav nav-tabs">
-                <li role="presentation" class="active"><a href="{% url 'access:login' %}">Log In</a></li>
-                <li role="presentation">>Sign Up</li>
-            </ul>
-            <div class="in_and_up_form">
-                <p>Already have an account? Then please <a href="{% url 'access:login' %}">sign in</a></p>
-
-                <form class="signup" id="signup_form" method="post">
-                  {% csrf_token %}
-                  {{ form.as_p }}
-                  <button type="submit">Sign Up</button>
-                </form>
-            </div>
-        </div>
+{% block content %}
+     <div class="in-form">
+        <form class="login" method="POST" action="{% url 'access:signup' %}">
+            <span class="text-danger small"> {{ login_error }} </span>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="primaryAction" type="submit">Sign In</button>
+        </form>
     </div>
 
-{% endblock %}
-
-{% block right %}
 {% endblock %}
