@@ -1,8 +1,6 @@
-.in-form {
-    padding: 10px 20px;
-    margin: 10% auto;
-    border: solid #212a38 1px;
-    width: 35%;
+/*css header login and signup forms*/
+#login-sign {
+    cursor: pointer;
 }
 
 .arrow-up {
@@ -33,12 +31,10 @@
 }
 
 
-#login-sign {
-    cursor: pointer;
-}
-
 .login input:focus {
     border-radius: 1px;
+    padding-left: 1px;
+    border: 0;
 }
 
 .login-field {
@@ -54,8 +50,52 @@
     background: no-repeat;
     color: white;
     width: 100%;
+    cursor: pointer;
+
 }
 
 .login-field-appear {
     display: block;
+}
+
+/*css login and signup forms*/
+.in-form {
+    padding: 10px 20px;
+    margin: 10% auto;
+    background-color: #212a38;
+    width: 35%;
+    border-radius: 5px;
+}
+
+.access-form{
+
+}
+
+.access-form label{
+    color: white;
+}
+
+.access-form ul{
+    padding-top: 5px;
+    float: end;
+    color: red;
+    font-size: 9pt;
+}
+
+.access-form input:focus{
+    border-radius: 5px;
+    padding-left: 10px;
+    border: solid 5px white;
+}
+
+.access-form-choose label{
+    margin-top: 40px;
+    color: white;
+    float: bottom;
+}
+
+.access-form-choose button{
+    background: no-repeat;
+    color: white;
+    cursor: pointer;
 }
