@@ -1,10 +1,7 @@
 {% extends 'base.html' %}
 {% block titel %} Goods {% endblock %}
 
-{% block left %}
-{% endblock %}
-
-{% block middle %}
+{% block content %}
     <div class="">
         <p>Return to List of your Goods</p>
         <a href="{% url 'suppliers:list_goods' %}" class="btn btn-primary" role="button">Return</a>
@@ -17,7 +14,4 @@
         </form>
     </div>
 
-{% endblock %}
-
-{% block right %}
 {% endblock %}

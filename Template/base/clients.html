@@ -1,12 +1,9 @@
 {% extends 'base.html' %}
 {% block titel %} Clients {% endblock %}
 
-{% block left %}
+{% block content %}
     <p>To find a new buyer you can use "search"</p>
     <a href="#" class="btn btn-primary" role="button">New Item</a>
-{% endblock %}
-
-{% block middle %}
     <div class="list-clients-box">
          <ul class="list-clients">
          {% if clients %}
@@ -25,7 +22,4 @@
           {% endif %}
         </ul>
     </div>
-{% endblock %}
-
-{% block right %}
 {% endblock %}

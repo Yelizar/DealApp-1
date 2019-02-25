@@ -56,15 +56,20 @@ class SettingsDetailView(DetailView):
     model = UserProfile
 
     def get_context_data(self, **kwargs):
-        user = Clients.objects.get(current_user=kwargs['object'])
-        clients = user.members.all()
-        context = super().get_context_data(**kwargs)
-        context['clients'] = clients
-        if kwargs['object'] == 'buyer':
+        try:
+            user = Clients.objects.get(current_user=kwargs['object'])
+            context = super().get_context_data(**kwargs)
+            clients = user.members.all()
+            context['clients'] = clients
+            if kwargs['object'].user_type == 'buyer':
+                return context
+            elif kwargs['object'].user_type == 'supplier':
+                goods = Goods.objects.filter(supplier=kwargs['object'])
+                context['goods'] = goods
+                return context
+        except Clients.DoesNotExist:
+            print(1)
+            context = super().get_context_data(**kwargs)
             return context
-        elif kwargs['object'].user_type == 'supplier':
-            goods = Goods.objects.filter(supplier=kwargs['object'])
-            context['goods'] = goods
-            return context
-        else:
-            return context
+
+

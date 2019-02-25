@@ -2,35 +2,38 @@
 {% block titel %} Chats {% endblock %}
 
 {% block content %}
-{% load tz %}
-{% if chats.count == 0 %}
-    <div class="col-lg-3">There is no any chats</div>
-{% endif %}
+    {% load tz %}
+    {% if chats.count == 0 %}
+        <div class="col-lg-3">There is no any chats</div>
+    {% endif %}
     {% for chat in chats %}
         {% if chat.message_set.count != 0 %}
             {% with last_message=chat.message_set.last %}
                 {% get_companion user chat as companion %}
                 <div class="col-lg-12">
                     <div class="chat-user-info chats">
-                            <img class="" src="{{ companion.photo.url }}">
-                            <strong class="list-group-item-heading">{{ companion.username }}</strong>
+                        <img class="" src="{{ companion.photo.url }}">
+                        <strong class="list-group-item-heading">{{ companion.username }}</strong>
 
-                            <small class="chat-date">{{ last_message.created|utc }}</small>
-                            {% if user != last_message.user %}
-                                <a class="" href="{{ chat.get_absolute_url }}">
+                        <small class="chat-date">{{ last_message.created|utc }}</small>
+                        {% if user != last_message.user %}
+                            <a class="" href="{{ chat.get_absolute_url }}">
                                 <div class="chat-user-info-small">
-                                    <div class="chat-set{% if not last_message.is_read %}unreaded{% endif %}"><img class="" src="{{ companion.photo.url }}">{{ last_message.message|safe }}</div>
+                                    <div class="chat-set{% if not last_message.is_read %}unreaded{% endif %}"><img
+                                            class="" src="{{ companion.photo.url }}">{{ last_message.message|safe }}
+                                    </div>
                                 </div>
-                                </a>
-                            {% else %}
-                                <a class="" href="{{ chat.get_absolute_url }}">
+                            </a>
+                        {% else %}
+                            <a class="" href="{{ chat.get_absolute_url }}">
                                 <div class="chat-user-info-small">
-                                    <div class="chat-set{% if not last_message.is_read %}unreaded{% endif %}"><img class="" src="{{ user.photo.url }}">{{ last_message.message|safe }}</div>
-                                </a>
-                                </div>
-                            {% endif %}
-                        </div>
-                    </a>
+                                    <div class="chat-set{% if not last_message.is_read %}unreaded{% endif %}"><img
+                                            class="" src="{{ user.photo.url }}">{{ last_message.message|safe }}</div>
+                            </a>
+                            </div>
+                        {% endif %}
+                </div>
+                </a>
                 </div>
             {% endwith %}
         {% endif %}

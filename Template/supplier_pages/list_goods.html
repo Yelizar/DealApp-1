@@ -1,14 +1,11 @@
 {% extends 'base.html' %}
 {% block titel %} Goods {% endblock %}
 
-{% block left %}
+{% block content %}
     <p>To add a new product to database press button</p>
     <a href="{% url 'suppliers:crete_goods' %}" class="btn btn-primary" role="button">New Item</a>
-{% endblock %}
-
-{% block middle %}
             {% for object in goods %}
-                <div class="col-lg-3 card-box">
+                <div class="col-lg-3 card-box ">
                         <div class="card-name">
                             {{ object.name }}
                         </div>
@@ -34,7 +31,5 @@
                         </div>
                 </div>
             {% endfor %}
-{% endblock %}
 
-{% block right %}
 {% endblock %}
