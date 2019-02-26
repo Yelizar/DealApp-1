@@ -68,7 +68,6 @@ class SettingsDetailView(DetailView):
                 context['goods'] = goods
                 return context
         except Clients.DoesNotExist:
-            print(1)
             context = super().get_context_data(**kwargs)
             return context
 

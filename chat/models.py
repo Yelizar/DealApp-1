@@ -9,7 +9,7 @@ class Session(models.Model):
     members = models.ManyToManyField(UserProfile)
 
     def get_absolute_url(self):
-        return 'chat:message', (), {'chat_id': self.pk}
+        return self.pk
 
 
 class Message(models.Model):
