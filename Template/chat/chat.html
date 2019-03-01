@@ -19,8 +19,7 @@
                         {% if user != last_message.user %}
                             <a class="" href="{{ chat.get_absolute_url }}">
                                 <div class="chat-user-info-small">
-                                    <div class="chat-set{% if not last_message.is_read %}unreaded{% endif %}"><img
-                                            class="" src="{{ companion.photo.url }}">{{ last_message.message|safe }}
+                                    <div class="chat-set{% if not last_message.is_read %}unreaded{% endif %}">{{ last_message.message|safe }}
                                     </div>
                                 </div>
                             </a>

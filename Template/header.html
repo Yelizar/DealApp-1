@@ -7,15 +7,10 @@
     </div>
     <div class="landing-menu">
         <ul>
-            <li>Menu</li>
+            <li class="landing-open-sidebar">Menu</li>
             <li>About</li>
             <li class="premium">Premium</li>
         </ul>
-    </div>
-    <div class="landing-logo">
-        <a href="/">
-            <img id="logo" src="{% static 'images/landing/2_Flat_logo_on_transparent_302x65.png' %}">
-        </a>
     </div>
      <div class="header-search">
         <form class="search-form" id="search" method='GET' action="{% url 'search:search' %}">
@@ -24,6 +19,7 @@
             <button type="submit"><i class="fas fa-search"></i></button>
         </form>
     </div>
+
 </div>
 
 

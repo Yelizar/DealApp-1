@@ -16,8 +16,8 @@
 }
 
 .header-login-field {
-    height: 150px;
-    width: 300px;
+    height: 170px;
+    width: 260px;
     position: absolute;
     background: #222b39;
     top: 110px;
@@ -75,6 +75,9 @@
     color: white;
 }
 
+.access-form p{
+    padding-bottom: 10px;
+}
 .access-form ul{
     padding-top: 5px;
     float: end;
@@ -86,6 +89,10 @@
     border-radius: 5px;
     padding-left: 10px;
     border: solid 5px white;
+}
+
+.access-form-choose {
+    text-align: center;
 }
 
 .access-form-choose label{

@@ -6,10 +6,12 @@
         <form class="access-form" method="POST" action="{% url 'access:signup' %}">
             {% csrf_token %}
             {{ form.as_p }}
-            <button class="primaryAction" type="submit">Sign In</button>
+            <button class="primaryAction" type="submit">Sign Up</button>
         </form>
+        <div class="ui horizontal divider">
+            Or
+        </div>
         <div class="access-form-choose">
-            <label>You already member of DealApp!</label>
             <a href={% url 'access:login' %}>
                 <button type="button">Log In</button>
             </a>

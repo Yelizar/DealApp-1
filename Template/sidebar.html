@@ -15,7 +15,10 @@
         <div class="sidebar-options">
             <ul>{% message request user.id as message%}
                 <li><a href="{% url 'access:logout' %}">Logout</a></li>
-                <li class="string-mes" id="string-mes"><a href="{% url 'chat:chat' %}"><p class="mes" id="mes" >{{ message }}</p> Messages</a></li>
+
+                <li class="string-mes" id="string-mes"><a href="{% url 'chat:chat' %}">Messages <div class="ui label">
+                  <i class="mail icon"></i><i id="mes">{{ message }}</i>
+                </div></a></li>
                 <li id="string-clients" ><a href="{% url 'base:clients'%}">My clients</a></li>
                 {% if request.user.user_type == 'supplier' %}
                     <hr>
