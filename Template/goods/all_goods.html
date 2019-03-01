@@ -1,7 +1,46 @@
 {% extends 'base.html' %}
 {% block content %}
+    <p></p>
     {% for object in all_goods %}
-        {{ object.name }}
-        <img src="{{ object.picture.url }}">
+      <div class="ui items segment">
+            <div class="item">
+                <div class="ui small image">
+                    <img src="{{ object.picture.url }}" data-holder-rendered="true">
+                </div>
+                <div class="middle aligned content">
+
+                    <div class="header">
+                        {{ object.name }}
+                    </div>
+                    <h5 class="ui right floated header">{{ object.supplier }}</h5>
+                    <div class="description">
+                        <p>
+                            {% if object.description|length <= 160 %}
+                                {{ object.description }}
+                            {% elif object.description|length >= 160 %}
+                                {{ object.description|truncatechars:160 }}
+                            {% endif %}
+                        </p>
+
+                    </div>
+                    <div class="extra">
+                        <div class="ui left floated">
+                            <p class="ui green label ">
+                                {{ object.price }}$
+                            </p>
+                            <p class="ui yellow label ">
+                                {{ object.rating }}
+                            </p>
+                        </div>
+                        <div class="ui right floated button">
+                            <a href="{% url 'chat:create_session' object.supplier.id %}" role="button">Contact supplier</a>
+                        </div>
+                        <div class="ui right floated button">
+                            <a href="{% url 'chat:create_session' object.supplier.id  %}" role="button">More details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     {% endfor %}
 {% endblock %}

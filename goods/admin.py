@@ -13,3 +13,13 @@ class GoodsAdmin(admin.ModelAdmin):
 
 admin.site.register(Goods, GoodsAdmin)
 
+
+class GoodsFeedbackAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in GoodsFeedback._meta.fields]
+    list_display_links = ['product']
+    list_filter = ['product']
+    list_per_page = 900
+
+
+admin.site.register(GoodsFeedback, GoodsFeedbackAdmin)
+

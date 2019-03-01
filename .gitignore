@@ -52,3 +52,4 @@ fabric.properties
 .idea/blog.iml
 .idea/*.iml
 venv/
+static/dev/semantic

@@ -8,7 +8,10 @@
         <div class="ui items segment">
             <div class="item">
                 <div class="ui small image">
-                    <img src="{{ object.picture.url }}" data-holder-rendered="true">
+                    {% if object.picture %}
+
+                        <img src="{{ object.picture.url }}">
+                    {% endif %}
                 </div>
                 <div class="middle aligned content">
                     <div class="header">
