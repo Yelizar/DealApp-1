@@ -36,12 +36,16 @@
                                 {{ object.rating }}
                             </p>
                         </div>
-                        <div class="ui right floated button">
-                            <a href="{% url 'suppliers:update_goods' object.id %}" role="button">Edit</a>
-                        </div>
-                        <div class="ui right floated button">
-                            <a href="{% url 'suppliers:delete_goods' object.id %}" role="button">Delete</a>
-                        </div>
+                        <a href="{% url 'suppliers:update_goods' object.id %}" role="button">
+                            <div class="ui right floated button">
+                                Edit
+                            </div>
+                        </a>
+                        <a href="{% url 'suppliers:delete_goods' object.id %}" role="button">
+                            <div class="ui right floated button">
+                                Delete
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>

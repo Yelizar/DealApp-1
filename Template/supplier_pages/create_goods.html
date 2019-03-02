@@ -2,16 +2,15 @@
 {% block titel %} Goods {% endblock %}
 
 {% block content %}
-    <div class="">
+<div class="col-lg-3 left-side">
         <p>Return to List of your Goods</p>
         <a href="{% url 'suppliers:list_goods' %}" class="btn btn-primary" role="button">Return</a>
     </div>
-    <div class="col-lg-3">
-        <form action="" method="post" enctype="multipart/form-data">
+
+    <form class="ui form" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" value="Save" />
-        </form>
-    </div>
+  <button class="ui button" type="submit">Submit</button>
+</form>
 
 {% endblock %}
