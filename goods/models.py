@@ -31,7 +31,7 @@ class Goods(models.Model):
 
 class GoodsFeedback(models.Model):
     writer = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
-    product = models.ForeignKey(Goods, on_delete=models.CASCADE, null=True,  blank=True)
+    product = models.ForeignKey(Goods, on_delete=models.CASCADE)
     comment = models.ForeignKey("self", on_delete=models.CASCADE, null=True,  blank=True)
     text = models.TextField('Feedback', max_length=2048, default=None, blank=True)
     likes = models.IntegerField('Likes', default=0, null=True)
@@ -42,4 +42,7 @@ class GoodsFeedback(models.Model):
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
 
     def __str__(self):
-        return self.writer
+        return '{}'.format(self.text)
+
+
+
