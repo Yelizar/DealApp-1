@@ -15,7 +15,7 @@
                 </div>
                 <div class="middle aligned content">
                     <div class="header">
-                        {{ object.name }}
+                        <a href="{% url 'all_goods:product_view' object.id %}"> {{ object.name }}</a>
                     </div>
                     <div class="description">
                         <p>

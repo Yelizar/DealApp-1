@@ -6,7 +6,7 @@ $(document).ready(function() {
                     $('#mes').replaceWith("<i id=mes'>"+dat+"</i>");
         }
         });
-    }, 2000);
+    }, 100000);
 
 
 });

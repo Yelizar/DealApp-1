@@ -15,8 +15,7 @@ admin.site.register(Goods, GoodsAdmin)
 
 
 class GoodsFeedbackAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in GoodsFeedback._meta.fields]
-    list_display_links = ['product']
+    list_display = ['id', 'writer', 'comment', 'is_active']
     list_filter = ['product']
     list_per_page = 900
 
