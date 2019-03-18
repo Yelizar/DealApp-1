@@ -31,7 +31,6 @@ class ProductDetailView(View):
                 self.feedloop(feed)
                 feedbacks += self.feedbacks
                 self.feedbacks.clear()
-                print(feedbacks)
         except GoodsFeedback.DoesNotExist:
             feedback = None
         return render(request, self.template_name, locals())

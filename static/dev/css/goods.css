@@ -1,0 +1,50 @@
+.goodsfeedback {
+    position: fixed !important;
+    float: right;
+    right: 15%;
+
+}
+#goodsfeedback textarea{
+    resize: none;
+}
+
+.feedbacks {
+    border-right: 1px solid #e8e8e8;
+    margin-right: -40px;
+    margin-left: 20px;
+    display: grid;
+    width: 100%;
+
+
+}
+
+.replay {
+    border-left: 1px solid #e8e8e8;
+    margin-left: 15px;
+    padding-left: 10px;
+    position: relative;
+    float: left;
+    width: 100%;
+
+}
+
+.feedback {
+    width: 100%;
+    float: left;
+    position: static;
+}
+
+.feedback-text {
+    width: 80%;
+    float: left;
+}
+
+.feedback-likes {
+    float: left;
+    width: 20%;
+}
+
+.feedback-button {
+    width: 100%;
+    float: left;
+}
