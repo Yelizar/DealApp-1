@@ -1,7 +1,10 @@
 .goodsfeedback {
     position: fixed !important;
     float: right;
-    right: 15%;
+    left: 55%;
+    top: 45%;
+    visibility: hidden;
+    max-width: 500px !important;
 
 }
 #goodsfeedback textarea{
@@ -31,20 +34,25 @@
 .feedback {
     width: 100%;
     float: left;
-    position: static;
 }
 
 .feedback-text {
-    width: 80%;
+    max-width: 80%;
     float: left;
 }
 
 .feedback-likes {
+    max-width: 20%;
+
     float: left;
-    width: 20%;
 }
 
-.feedback-button {
-    width: 100%;
-    float: left;
+.replay-button {
+    position: inherit;
+    display:block;
+
+}
+
+.link-replay{
+    display: inline-block;
 }

@@ -1,5 +1,5 @@
 from django.views.generic import View
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 
 from .models import Goods, GoodsFeedback
 from .forms import GoodsFeedbackForm
@@ -52,3 +52,20 @@ class ProductDetailView(View):
         feedback_replay = GoodsFeedback.objects.filter(comment=feed)
         if feedback_replay:
             self.feed_appender(feedback_replay)
+
+    def post(self, request, product_id, **kwargs):
+        form = GoodsFeedbackForm(data=request.POST)
+        print(request.POST)
+
+        if form.is_valid():
+            feedback = form.save(commit=False)
+            feedback.product_id = product_id
+            feedback.writer = request.user
+            try:
+                replay = GoodsFeedback.objects.get(comment__comment_id=request.POST['replay-comment-id'])
+                feedback.comment = replay
+            except ValueError:
+                feedback.comment = None
+            feedback.save()
+        return redirect(reverse('all_goods:product_view', kwargs={'product_id': product_id}))
+

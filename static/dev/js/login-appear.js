@@ -3,4 +3,4 @@ $(document).ready(function () {
         $('.header-login-field').toggleClass('login-field-appear');
         $('.arrow-up').toggleClass('login-field-appear');
     })
-})
+});

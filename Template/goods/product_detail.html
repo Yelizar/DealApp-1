@@ -32,17 +32,22 @@
         </div>
     </div>
     <div class="ui comments">
-    <div class="goodsfeedback ui form" >
-                <form class="form"  method="post" action {% url 'all_goods:product_view' product_id %}>
-                    {% csrf_token %}
-                    <div id="goodsfeedback" style="width: 80%; float: left;">
-                        {{ form }}
-                    </div>
-                    <button class="ui primary basic button tiny" style="margin-left: 10px  ">
-                        <i class="icon edit"></i>Send
-                    </button>
-                </form>
-            </div>
+        <button class="ui primary basic button tiny feedback-button">
+            <i class="icon edit"></i>Leave a comment
+        </button>
+        <div class="goodsfeedback ui form">
+
+            <form class="form" method="post" action {% url 'all_goods:product_view' product_id %} >
+                {% csrf_token %}
+                <div id="goodsfeedback" style="width: 80%; float: right;">
+                    {{ form }}
+                    <input type='hidden' id="replay-comment-id" value="" name="replay-comment-id">
+                </div>
+                <button class="ui primary basic button tiny" style="margin-left: 10px; margin-top: 32px  ">
+                    <i class="icon edit"></i>Send
+                </button>
+            </form>
+        </div>
         <h3 class="ui dividing header">Comments</h3>
         <div class="feedbacks">
             {% for comment in feedbacks %}
@@ -64,11 +69,13 @@
                                     <i class="like icon"></i> 4 Likes
                                 </a>
                             </div>
-                            <div class="action feedback-button">
-                                <a class="">Reply</a>
+                        <div class="actions replay-button feedback-button" id="{{ comment.id }}">
+                                <a class="reply link-replay"><i class="reply icon">Replay</i></a>
                             </div>
-                        </div>
                     </div>
+
+                        </div>
+
                 {% else %}
                     <div class="replay">
                         <div class="comments">
@@ -80,12 +87,18 @@
                                     <a class="author">{{ comment.writer.username }}</a>
                                     <div class="metadata">
                                         <span class="date">{{ comment.created }}</span>
+                                        <span class="replay-info">{{ comment.comment.writer }} </span>
                                     </div>
                                     <div class="text">
-                                        <a href="">{{ comment.comment.writer }},</a> {{ comment.text }}
+                                        {{ comment.text }}
                                     </div>
-                                    <div class="actions">
-                                        <a class="reply">Reply</a>
+                                    <div class="feedback-likes">
+                                        <a class="like">
+                                            <i class="like icon"></i> 4 Likes
+                                        </a>
+                                    </div>
+                                    <div class="actions replay-button feedback-button" id="{{ comment.comment_id }}">
+                                        <a class="reply"><i class="reply icon">Replay</i></a>
                                     </div>
                                 </div>
                             </div>
@@ -93,8 +106,8 @@
                     </div>
                 {% endif %}
             {% endfor %}
-        <i class="ui divider">
-        </i>
+            <i class="ui divider">
+            </i>
         </div>
 
     </div>
