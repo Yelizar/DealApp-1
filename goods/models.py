@@ -34,7 +34,6 @@ class GoodsFeedback(models.Model):
     product = models.ForeignKey(Goods, on_delete=models.CASCADE)
     comment = models.ForeignKey("self", on_delete=models.CASCADE, null=True,  blank=True)
     text = models.TextField('Feedback', max_length=2048, default=None, blank=True)
-    branch = models.CharField(max_length=64, default='Error', blank=True)
     likes = models.IntegerField('Likes', default=0, null=True)
 
     is_active = models.BooleanField(default=True)

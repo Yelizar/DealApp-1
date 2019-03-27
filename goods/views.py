@@ -20,53 +20,29 @@ class ProductDetailView(View):
     template_name = 'goods/product_detail.html'
     feedbacks = []
 
-    # def get(self, request, product_id):
-    #     form = GoodsFeedbackForm()
-    #     feedbacks = []
-    #     try:
-    #         product = Goods.objects.get(id=product_id)
-    #         feedback = GoodsFeedback.objects.filter(product=product, comment=None)
-    #         for feed in feedback:
-    #             self.feedbacks.append(feed)
-    #             self.feedloop(feed)
-    #             feedbacks += self.feedbacks
-    #             self.feedbacks.clear()
-    #     except GoodsFeedback.DoesNotExist:
-    #         feedback = None
-    #     return render(request, self.template_name, locals())
-    # #
-    # # def feedloop(self, feed):
-    # #     variable = 'comment'
-    # #     feedback_replay = GoodsFeedback.objects.filter(**{variable: feed})
-    # #     if feedback_replay:
-    # #         variable += '__comment'
-    # #         self.feedloop(feedback_replay)
-    #
-    # def feed_appender(self, feedback):
-    #     for feed in feedback:
-    #         self.feedbacks.append(feed)
-    #         self.feedloop(feed)
-    #
-    # #     return self.feedbacks
-    # def feedloop(self, feed):
-    #     feedback_replay = GoodsFeedback.objects.filter(comment=feed)
-    #     if feedback_replay:
-    #         self.feed_appender(feedback_replay)
-
     def get(self, request, product_id):
         form = GoodsFeedbackForm()
         feedbacks = []
         try:
             product = Goods.objects.get(id=product_id)
             feedback = GoodsFeedback.objects.filter(product=product, comment=None)
-            for feed in feedback:
-                feedbacks.append(feed)
-                branch = GoodsFeedback.objects.filter(product=product, branch=feed.branch)
-                feedbacks.append(branch)
-                print(feedbacks)
+            self.feed_appender(feedback)
+            feedbacks += self.feedbacks
+            print(feedbacks)
+            self.feedbacks.clear()
         except GoodsFeedback.DoesNotExist:
-            print(123)
+            feedback = None
         return render(request, self.template_name, locals())
+
+    def feed_appender(self, feedback):
+        for feed in feedback:
+            self.feedbacks.append(feed)
+            self.feedloop(feed)
+
+    def feedloop(self, feed):
+        feedback_replay = GoodsFeedback.objects.filter(comment=feed)
+        if feedback_replay:
+            self.feed_appender(feedback_replay)
 
     def post(self, request, product_id, **kwargs):
         form = GoodsFeedbackForm(data=request.POST)
