@@ -25,7 +25,7 @@ class ProductDetailView(View):
         feedbacks = []
         try:
             product = Goods.objects.get(id=product_id)
-            feedback = GoodsFeedback.objects.filter(product=product, comment=None)
+            feedback = GoodsFeedback.objects.filter(product=product, comment=None).order_by('pk')
             self.feed_appender(feedback)
             feedbacks += self.feedbacks
             print(feedbacks)
@@ -40,7 +40,7 @@ class ProductDetailView(View):
             self.feedloop(feed)
 
     def feedloop(self, feed):
-        feedback_replay = GoodsFeedback.objects.filter(comment=feed)
+        feedback_replay = GoodsFeedback.objects.filter(comment=feed).order_by('pk')
         if feedback_replay:
             self.feed_appender(feedback_replay)
 

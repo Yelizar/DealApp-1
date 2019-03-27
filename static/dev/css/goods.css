@@ -1,15 +1,19 @@
-/*.goodsfeedback {*/
-    /*position: fixed !important;*/
-    /*float: right;*/
-    /*left: 55%;*/
-    /*top: 45%;*/
-    /*visibility: hidden;*/
-    /*max-width: 500px !important;*/
+.goodsfeedback {
+    position: fixed !important;
+    float: right;
+    left: 55%;
+    top: 45%;
+    visibility: hidden;
+    max-width: 500px !important;
 
-/*}*/
-/*#goodsfeedback textarea{*/
-    /*resize: none;*/
-/*}*/
+}
+#goodsfeedback textarea{
+    resize: none;
+}
+
+.replay-reference{
+    cursor: pointer;
+}
 
 /*.feedbacks {*/
     /*border-right: 1px solid #e8e8e8;*/
