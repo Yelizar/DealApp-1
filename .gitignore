@@ -6,6 +6,7 @@
 .idea/**/tasks.xml
 .idea/dictionaries
 __pycache__/
+Pipfile
 
 # Sensitive or high-churn files:
 .idea/**/dataSources/
