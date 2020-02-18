@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'search',
 
     'tinymce',
+    'rest_framework',
 
 ]
 
@@ -114,7 +115,7 @@ DATABASES = {
         'NAME': 'ttm',
         'USER': 'laz',
         'PASSWORD': '321',
-        'HOST': 'db',
+        'HOST': 'localhost',
         'PORT': 5432,
     }
 }

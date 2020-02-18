@@ -1,6 +1,7 @@
 from django.views.generic import View
 from django.shortcuts import render, redirect, reverse
-
+from rest_framework import viewsets
+from .serializers import GoodsSerializers
 from .models import Goods, GoodsFeedback
 from .forms import GoodsFeedbackForm
 
@@ -60,3 +61,7 @@ class ProductDetailView(View):
             feedback.save()
         return redirect(reverse('all_goods:product_view', kwargs={'product_id': product_id}))
 
+
+class GoodView(viewsets.ModelViewSet):
+    queryset = Goods.objects.all()
+    serializer_class = GoodsSerializers
