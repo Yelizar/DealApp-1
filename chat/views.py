@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse, render_to_response, HttpResponse
+from django.shortcuts import render, redirect, reverse, HttpResponse
 from django.views.generic import View
 from django.db.models import Count
 from django.core.mail import send_mail
@@ -19,7 +19,7 @@ class ChatView(View):
         if request.is_ajax():
             try:
                 if request.GET['data'] == 'get_page':
-                    return render_to_response(template, locals())
+                    return render(None, template, locals())
             except KeyError:
                 dat = message
                 print(dat)

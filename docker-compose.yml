@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  db:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: "deal-db"
+      MYSQL_USER: "laz"
+      MYSQL_PASSWORD: "321"
+      MYSQL_ROOT_PASSWORD: "321"
+      MYSQL_ALLOW_EMPTY-PASSWORD: "true"
+  web:
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    command: python manage.py runserver 0.0.0.0:8000
+    depends_on:
+      - db
+
+
